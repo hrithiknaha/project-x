@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const session = require('express-session');
+const flash = require('connect-flash');
+const cookieParser = require('cookie-parser');
 
 //Local Referencing
 const Users = require('./models/Users');
@@ -33,6 +35,9 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: false }));
 
+//Cookie Configuration
+app.use(cookieParser('secret'));
+
 //Session Configuration
 app.use(
 	session({
@@ -42,12 +47,23 @@ app.use(
 	})
 );
 
+//Flash Configuration
+app.use(flash());
+
 //Passport Configuration
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(Users.authenticate()));
 passport.serializeUser(Users.serializeUser());
 passport.deserializeUser(Users.deserializeUser());
+
+//Setting up local variables
+app.use(function (req, res, next) {
+	res.locals.currentUser = req.user;
+	res.locals.success = req.flash('success');
+	res.locals.error = req.flash('error');
+	next();
+});
 
 //Routes
 app.use('/', indexRoutes);
