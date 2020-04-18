@@ -8,7 +8,7 @@ const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
 
 //Local Referencing
-const Users = require('./models/Users');
+const User = require('./models/Users');
 
 //Requiring routes
 const indexRoutes = require('./routes/index');
@@ -33,7 +33,7 @@ mongoose.connect(
 //Express Configuration
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 //Cookie Configuration
 app.use(cookieParser('secret'));
@@ -53,9 +53,9 @@ app.use(flash());
 //Passport Configuration
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new LocalStrategy(Users.authenticate()));
-passport.serializeUser(Users.serializeUser());
-passport.deserializeUser(Users.deserializeUser());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 //Setting up local variables
 app.use(function (req, res, next) {

@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
 	},
 	password: {
 		type: String,
-		required: true,
+		// required: true,
 		min: 8,
 		max: 1024
 	},
@@ -28,4 +28,4 @@ const userSchema = new mongoose.Schema({
 
 userSchema.plugin(passportLocalMongoose);
 
-module.exports = mongoose.model('Users', userSchema);
+module.exports = mongoose.model('User', userSchema);
