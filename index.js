@@ -12,6 +12,7 @@ const User = require('./models/Users');
 
 //Requiring routes
 const indexRoutes = require('./routes/index');
+const authRoutes = require('./routes/auth');
 const writeRoutes = require('./routes/write');
 
 //App
@@ -67,6 +68,7 @@ app.use(function (req, res, next) {
 
 //Routes
 app.use('/', indexRoutes);
+app.use('/', authRoutes);
 app.use('/:id', writeRoutes);
 
 //Server Configuration
