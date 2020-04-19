@@ -67,7 +67,7 @@ app.use(function (req, res, next) {
 
 //Routes
 app.use('/', indexRoutes);
-app.use('/', writeRoutes);
+app.use('/:id', writeRoutes);
 
 //Server Configuration
 const PORT = process.env.PORT || 3000;

@@ -1,11 +1,8 @@
-const router = require('express').Router();
+const router = require('express').Router({ mergeParams: true });
 
-router.get('/:username/write', (req, res) => {
-	res.render('write');
-});
-
-router.post('/:username/write', (req, res) => {
-	console.log(req.body);
+router.get('/', (req, res) => {
+	console.log(req.params.id);
+	res.send('Welcome');
 });
 
 module.exports = router;
