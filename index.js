@@ -13,7 +13,8 @@ const User = require('./models/Users');
 //Requiring routes
 const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
-const writeRoutes = require('./routes/write');
+const accountRoutes = require('./routes/account');
+const journalRoutes = require('./routes/journal');
 
 //App
 const app = express();
@@ -69,7 +70,8 @@ app.use(function (req, res, next) {
 //Routes
 app.use('/', indexRoutes);
 app.use('/', authRoutes);
-app.use('/:id', writeRoutes);
+app.use('/:username', accountRoutes);
+app.use('/journals', journalRoutes);
 
 //Server Configuration
 const PORT = process.env.PORT || 3000;
