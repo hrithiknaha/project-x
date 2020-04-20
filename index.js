@@ -9,6 +9,8 @@ const cookieParser = require('cookie-parser');
 
 //Local Referencing
 const User = require('./models/Users');
+const Journals = require('./models/Journals');
+const Comments = require('./models/Comments');
 
 //Requiring routes
 const indexRoutes = require('./routes/index');
@@ -68,10 +70,11 @@ app.use(function (req, res, next) {
 });
 
 //Routes
+
 app.use('/', indexRoutes);
 app.use('/', authRoutes);
-app.use('/:username', accountRoutes);
 app.use('/journals', journalRoutes);
+app.use('/:username', accountRoutes);
 
 //Server Configuration
 const PORT = process.env.PORT || 3000;

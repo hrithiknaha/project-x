@@ -1,14 +1,23 @@
-const router = require('express').Router({ mergeParams: true });
+const router = require('express').Router();
 const Journals = require('../models/Journals');
+
+const { isLoggedIn } = require('../middleware/index');
 
 router.get('/', (req, res) => {
 	Journals.find((err, journals) => {
-		if (err) return console.log('Error in Accessing DB');
+		if (err) return console.log(err);
+		res.render('journals/index', { journals });
 		console.log(journals);
 	});
 });
 
-router.get('/write', (req, res) => {
+//Journal GET Write Route
+router.get('/write', isLoggedIn, (req, res) => {
+	res.render('journals/write');
+});
+
+//Journal POST Write Route
+router.post('/write', isLoggedIn, (req, res) => {
 	const title = req.body.title;
 	const body = req.body.body;
 	const author = {
@@ -26,6 +35,18 @@ router.get('/write', (req, res) => {
 		if (err) return console.log(err);
 		console.log(recentlyCreatedJournal);
 	});
+});
+
+// Journal more info
+
+router.get('/:journal_id', (req, res) => {
+	console.log(req.params.journal_id);
+	Journals.findById(req.params.journal_id)
+		.populate('comments')
+		.exec(function (err, journal) {
+			if (err) return console.log('Error in accessing the DB' + err);
+			res.render('journals/journal', { journal });
+		});
 });
 
 module.exports = router;
