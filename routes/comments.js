@@ -37,6 +37,7 @@ router.post('/write', (req, res) => {
 router.get('/:comment_id/edit', (req, res) => {
 	console.log(req.params.journal_id);
 	Comment.findById(req.params.comment_id, (err, comment) => {
+		if (err) return console.log('Error in accessing the db');
 		res.render('comments/edit', {
 			comment,
 			journal_id: req.params.journal_id
@@ -52,5 +53,20 @@ router.post('/:comment_id/edit', (req, res) => {
 		comment.save();
 		res.redirect('/journals/' + req.params.journal_id);
 	});
+});
+
+//Comment delete route
+router.post('/:comment_id', (req, res) => {
+	Journals.findByIdAndUpdate(
+		req.params.journal_id,
+		{ $pull: { comments: req.params.comment_id } },
+		(err) => {
+			if (err) return console.log('Error in accessing the db');
+		}
+	);
+	Comment.findByIdAndDelete(req.params.comment_id, (err) => {
+		if (err) return console.log('Comment deleted');
+	});
+	res.redirect('/journals/' + req.params.journal_id);
 });
 module.exports = router;

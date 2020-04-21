@@ -1,8 +1,17 @@
 <p><%= journal.title%></p>
 <p><%= journal.body%></p>
 <p><%= journal.author.username%></p>
+<form action="/journals/<%=journal._id%>/delete" method="post">
+	<button>Delete</button>
+</form>
 
 <% journal.comments.forEach((comment) => { %>
 <p><%=comment.author.username %></p>
 <p><%=comment.text %></p>
+<form
+	action="/journals/<%=journal._id%>/comments/<%=comment._id %>"
+	method="post"
+>
+	<button>Delete</button>
+</form>
 <% }) %>
