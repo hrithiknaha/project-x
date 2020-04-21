@@ -48,6 +48,7 @@ router.get('/:journal_id', (req, res) => {
 		});
 });
 
+//Journal Edit route
 router.get('/:journal_id/edit', (req, res) => {
 	Journals.findById(req.params.journal_id, (err, journal) => {
 		if (err) return console.log('Error in accessing the db');
@@ -55,6 +56,7 @@ router.get('/:journal_id/edit', (req, res) => {
 	});
 });
 
+//Journal Edit post routes
 router.post('/:journal_id/edit', (req, res) => {
 	Journals.findById(req.params.journal_id, (err, journal) => {
 		if (err) return console.log('Error in accessing the db');
