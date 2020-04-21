@@ -1,0 +1,11 @@
+<form
+	action="/journals/<%=journal_id %>/comments/<%=comment._id %>/edit"
+	method="post"
+>
+	<label for="text">Comment</label>
+	<textarea name="text" id="text" cols="30" rows="10">
+<%= comment.text%></textarea
+	>
+
+	<button type="submit">Post</button>
+</form>

@@ -33,4 +33,24 @@ router.post('/write', (req, res) => {
 	});
 });
 
+//Comment Edit route
+router.get('/:comment_id/edit', (req, res) => {
+	console.log(req.params.journal_id);
+	Comment.findById(req.params.comment_id, (err, comment) => {
+		res.render('comments/edit', {
+			comment,
+			journal_id: req.params.journal_id
+		});
+	});
+});
+
+//Comment Edit post routes
+router.post('/:comment_id/edit', (req, res) => {
+	Comment.findById(req.params.comment_id, (err, comment) => {
+		if (err) return console.log('Error in accessing the db');
+		comment.text = req.body.text;
+		comment.save();
+		res.redirect('/journals/' + req.params.journal_id);
+	});
+});
 module.exports = router;
