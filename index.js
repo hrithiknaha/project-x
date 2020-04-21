@@ -10,13 +10,14 @@ const cookieParser = require('cookie-parser');
 //Local Referencing
 const User = require('./models/Users');
 const Journals = require('./models/Journals');
-const Comments = require('./models/Comments');
+const Comment = require('./models/Comments');
 
 //Requiring routes
 const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
 const accountRoutes = require('./routes/account');
 const journalRoutes = require('./routes/journal');
+const commentsRoutes = require('./routes/Comments');
 
 //App
 const app = express();
@@ -70,11 +71,11 @@ app.use(function (req, res, next) {
 });
 
 //Routes
-
 app.use('/', indexRoutes);
 app.use('/', authRoutes);
 app.use('/journals', journalRoutes);
 app.use('/:username', accountRoutes);
+app.use('/journals/:journal_id/comments', commentsRoutes);
 
 //Server Configuration
 const PORT = process.env.PORT || 3000;

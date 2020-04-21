@@ -1,3 +1,8 @@
 <p><%= journal.title%></p>
 <p><%= journal.body%></p>
 <p><%= journal.author.username%></p>
+
+<% journal.comments.forEach((comment) => { %>
+<p><%=comment.author.username %></p>
+<p><%=comment.text %></p>
+<% }) %>

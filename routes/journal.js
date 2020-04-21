@@ -67,6 +67,7 @@ router.post('/:journal_id/edit', (req, res) => {
 	});
 });
 
+//Journal Delete Route - To add delete comments route
 router.get('/:journal_id/delete', (req, res) => {
 	Journals.findByIdAndDelete(req.params.journal_id, (err, journal) => {
 		if (err) return console.log('Error in accessing the db');
