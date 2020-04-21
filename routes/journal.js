@@ -38,15 +38,38 @@ router.post('/write', isLoggedIn, (req, res) => {
 });
 
 // Journal more info
-
 router.get('/:journal_id', (req, res) => {
-	console.log(req.params.journal_id);
+	console.log('accessing id' + req.params.journal_id);
 	Journals.findById(req.params.journal_id)
 		.populate('comments')
 		.exec(function (err, journal) {
 			if (err) return console.log('Error in accessing the DB' + err);
 			res.render('journals/journal', { journal });
 		});
+});
+
+router.get('/:journal_id/edit', (req, res) => {
+	Journals.findById(req.params.journal_id, (err, journal) => {
+		if (err) return console.log('Error in accessing the db');
+		res.render('journals/edit', { journal });
+	});
+});
+
+router.post('/:journal_id/edit', (req, res) => {
+	Journals.findById(req.params.journal_id, (err, journal) => {
+		if (err) return console.log('Error in accessing the db');
+		journal.title = req.body.title;
+		journal.body = req.body.body;
+		journal.save();
+		res.redirect('/journals/' + journal.id);
+	});
+});
+
+router.get('/:journal_id/delete', (req, res) => {
+	Journals.findByIdAndDelete(req.params.journal_id, (err, journal) => {
+		if (err) return console.log('Error in accessing the db');
+		res.redirect('/journals');
+	});
 });
 
 module.exports = router;
