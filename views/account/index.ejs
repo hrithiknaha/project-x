@@ -1,1 +1,7 @@
-<h1>Hello <%=user %></h1>
+<h1>Hello <%=user.name %></h1>
+
+<% journals.forEach((journal) => { %>
+<h3><%= journal.title %></h3>
+<p><%= journal.body %></p>
+<p><%= journal.writtenAt %></p>
+<% }) %>
