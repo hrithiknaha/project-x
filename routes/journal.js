@@ -2,7 +2,7 @@ const router = require('express').Router();
 const Journals = require('../models/Journals');
 const Comment = require('../models/Comments');
 
-const { isLoggedIn } = require('../middleware/index');
+const { isLoggedIn, checkUserJournal } = require('../middleware/index');
 
 router.get('/', (req, res) => {
 	Journals.find((err, journals) => {
@@ -50,7 +50,7 @@ router.get('/:journal_id', (req, res) => {
 });
 
 //Journal Edit route
-router.get('/:journal_id/edit', (req, res) => {
+router.get('/:journal_id/edit', isLoggedIn, checkUserJournal, (req, res) => {
 	Journals.findById(req.params.journal_id, (err, journal) => {
 		if (err) return console.log('Error in accessing the db');
 		res.render('journals/edit', { journal });
@@ -58,7 +58,7 @@ router.get('/:journal_id/edit', (req, res) => {
 });
 
 //Journal Edit post routes
-router.post('/:journal_id/edit', (req, res) => {
+router.post('/:journal_id/edit', isLoggedIn, checkUserJournal, (req, res) => {
 	Journals.findById(req.params.journal_id, (err, journal) => {
 		if (err) return console.log('Error in accessing the db');
 		journal.title = req.body.title;
@@ -69,7 +69,7 @@ router.post('/:journal_id/edit', (req, res) => {
 });
 
 //Journal Delete Route - To add delete comments route
-router.post('/:journal_id/delete', (req, res) => {
+router.post('/:journal_id/delete', isLoggedIn, checkUserJournal, (req, res) => {
 	Journals.findByIdAndDelete(
 		req.params.journal_id,
 		{ useFindAndModify: false },
