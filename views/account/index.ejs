@@ -3,7 +3,7 @@
 <div class="ui container">
 	<h1>Hello <%=user %></h1>
 
-	<div class="ui three column grid">
+	<div class="ui three column grid doubling stackable masonry grid">
 		<% journals.forEach((journal) => { %>
 		<div class="column">
 			<a class="ui fluid card" href="/journals/<%=journal._id%>">
