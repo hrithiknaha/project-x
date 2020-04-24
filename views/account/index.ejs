@@ -1,9 +1,29 @@
 <%- include ('../partials/header') %>
 
-<h1>Hello <%=user.name %></h1>
+<div class="ui container">
+	<h1>Hello <%=user %></h1>
 
-<% journals.forEach((journal) => { %>
-<h3><%= journal.title %></h3>
-<p><%= journal.body %></p>
-<p><%= journal.writtenAt %></p>
-<% }) %> <%- include ('../partials/footer') %>
+	<div class="ui three column grid">
+		<% journals.forEach((journal) => { %>
+		<div class="column">
+			<a class="ui fluid card" href="/journals/<%=journal._id%>">
+				<div class="content">
+					<div class="header"><%= journal.title %></div>
+					<div class="meta">Animal</div>
+					<div class="description">
+						<p>
+							<%= journal.body %>
+						</p>
+					</div>
+				</div>
+				<!-- <div class="extra content">
+                            <i class="check icon"></i>
+                            121 Votes
+                        </div> -->
+			</a>
+		</div>
+		<% }) %>
+	</div>
+</div>
+
+<%- include ('../partials/footer') %>
