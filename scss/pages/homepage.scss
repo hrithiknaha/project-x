@@ -1,0 +1,14 @@
+.hp-banner {
+	background-color: $primary-color;
+	width: 100%;
+	height: 100vh;
+
+	&_title {
+		width: 25rem;
+		font-size: 3rem;
+		color: white;
+		margin: 0 auto;
+		padding-top: 18rem;
+		text-align: center;
+	}
+}
