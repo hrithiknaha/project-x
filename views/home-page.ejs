@@ -1,7 +1,15 @@
 <%- include('partials/header') %>
 
 <div class="hp-banner">
-	<p class="hp-banner_title">Project X | Write Today.</p>
+	<div class="hp-banner_title">
+		<p>Project X | Write Today.</p>
+		<a href="#hp-body"
+			><i class="chevron down icon hp-banner_subtitle"></i
+		></a>
+	</div>
 </div>
 
-<%- include('partials/footer') %>
+<div id="hp-body" class="hp-body">
+	<h3>hello Wordl</h3>
+</div>
+<%- include('partials/smooth-scroll') %> <%- include('partials/footer') %>
