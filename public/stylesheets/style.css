@@ -2,6 +2,8 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Bad+Script&family=Dancing+Script:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,100&display=swap");
 html,
 body,
 div,
@@ -131,20 +133,41 @@ a {
   a:hover {
     color: white; }
 
+body {
+  font-family: 'Roboto', sans-serif; }
+
 .hp-banner {
   background-color: #2d3436;
   width: 100%;
   height: 100vh; }
-  .hp-banner_title {
-    width: 25rem;
-    font-size: 3rem;
-    color: white;
+  .hp-banner-div {
+    width: 50em;
     margin: 0 auto;
-    padding-top: 14rem;
-    text-align: center; }
-  .hp-banner_subtitle {
-    font-size: 0.5em !important;
-    cursor: pointer; }
+    text-align: center;
+    color: white;
+    padding-top: 12em; }
+    .hp-banner-div_title {
+      font-size: 3em; }
+    .hp-banner-div_subtitle {
+      margin-top: 2em;
+      font-size: 3em;
+      font-family: 'Dancing Script', cursive;
+      font-weight: 200; }
+    .hp-banner-div_arrow {
+      padding-top: 1em; }
 
 .hp-body {
-  height: 100vh; }
+  margin-top: 12em;
+  height: 80vh; }
+  .hp-body_intro {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2em;
+    align-items: center; }
+    .hp-body_intro_photo > img {
+      object-fit: cover; }
+    .hp-body_intro_text_title {
+      font-family: 'Bad Script', cursive;
+      font-size: 3em; }
+    .hp-body_intro_text_button {
+      margin-top: 3em !important; }

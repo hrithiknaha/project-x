@@ -1,15 +1,51 @@
 <%- include('partials/header') %>
 
-<div class="hp-banner">
-	<div class="hp-banner_title">
-		<p>Project X | Write Today.</p>
-		<a href="#hp-body"
-			><i class="chevron down icon hp-banner_subtitle"></i
-		></a>
+<div class="hp">
+	<div class="hp-banner">
+		<div class="hp-banner-div">
+			<p class="hp-banner-div_title">
+				Fondness - over - writing
+			</p>
+			<span class="hp-banner-div_subtitle">start today</span>
+			<br />
+			<a href="#hp-body">
+				<i class="chevron down icon hp-banner-div_arrow"></i>
+			</a>
+		</div>
+	</div>
+
+	<div id="hp-body" class="ui container hp-body">
+		<div class="hp-body_intro">
+			<div class="hp-body_intro_photo">
+				<img
+					src="https://source.unsplash.com/random"
+					alt="photo"
+					width="600"
+					height="300"
+				/>
+			</div>
+			<div class="hp-body_intro_text">
+				<p class="hp-body_intro_text_title">What is FOW?</p>
+				<p class="hp-body_intro_text_subtitle">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit.
+					Sequi nesciunt sed natus excepturi quaerat distinctio
+					inventore id ad facilis voluptates. Maiores mollitia fugiat
+					magnam, quisquam, facilis dignissimos rerum deleniti ratione
+					illum quas aperiam recusandae enim, voluptate odio nulla
+					culpa vel quia adipisci? Nemo dicta eaque vitae voluptatum
+					perspiciatis, totam ex?
+				</p>
+				<a href="/journals"
+					><button
+						class="ui right labeled icon button hp-body_intro_text_button"
+					>
+						<i class="right arrow icon"></i>
+						Peruse
+					</button></a
+				>
+			</div>
+		</div>
 	</div>
 </div>
 
-<div id="hp-body" class="hp-body">
-	<h3>hello Wordl</h3>
-</div>
 <%- include('partials/smooth-scroll') %> <%- include('partials/footer') %>
