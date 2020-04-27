@@ -1,6 +1,14 @@
-<% journals.forEach((journal) => { %>
-<p><%= journal.title%></p>
-<p><%= journal.body%></p>
-<p><%= journal.author.username%></p>
-<p>______________________________-</p>
-<% }) %>
+<%- include('../partials/header') %> <% journals.forEach((journal) => { %>
+
+<div class="ui card">
+	<div class="content">
+		<div class="header"><%= journal.title%></div>
+		<div class="meta"><%= journal.author.username%></div>
+		<div class="description">
+			<p>
+				<%= journal.body%>
+			</p>
+		</div>
+	</div>
+</div>
+<% }) %> <%- include('../partials/footer') %>
