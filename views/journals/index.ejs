@@ -1,14 +1,35 @@
-<%- include('../partials/header') %> <% journals.forEach((journal) => { %>
+<%- include('../partials/header') %>
 
-<div class="ui card">
-	<div class="content">
-		<div class="header"><%= journal.title%></div>
-		<div class="meta"><%= journal.author.username%></div>
-		<div class="description">
-			<p>
-				<%= journal.body%>
-			</p>
+<section class="ji-banner">
+	<div class="ji-banner-div">
+		<p class="ji-banner-div_title">perusal</p>
+		<span class="ji-banner-div_meaning">/pəˈruːz(ə)l/</span>
+	</div>
+</section>
+
+<div class="ui container ji-body">
+	<div class="ui three column grid doubling stackable masonry grid">
+		<% journals.forEach((journal) => { %>
+		<div class="column">
+			<a class="ui fluid red card" href="/journals/<%=journal._id%>">
+				<div class="content">
+					<div class="header"><%= journal.title %></div>
+					<div class="ui orange right ribbon tiny label">Specs</div>
+					<!-- <div class="ui top right attached red label">Code</div> -->
+					<div class="description">
+						<p>
+							<%= journal.body %>
+						</p>
+					</div>
+				</div>
+				<!-- <div class="extra content">
+                            <i class="check icon"></i>
+                            121 Votes
+                        </div> -->
+			</a>
 		</div>
+		<% }) %>
 	</div>
 </div>
-<% }) %> <%- include('../partials/footer') %>
+
+<%- include('../partials/footer') %>

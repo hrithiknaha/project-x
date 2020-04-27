@@ -172,3 +172,20 @@ body {
       font-size: 3em; }
     .hp-body_intro_text_button {
       margin-top: 3em !important; }
+
+.ji-banner {
+  background-color: #2d3436;
+  width: 100%;
+  height: 80vh; }
+  .ji-banner-div {
+    width: 50em;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    padding-top: 12em; }
+    .ji-banner-div_title {
+      font-size: 3em;
+      font-weight: 100; }
+
+.ji-body {
+  margin-top: 8em; }
