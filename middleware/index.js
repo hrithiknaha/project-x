@@ -3,7 +3,8 @@ const Journal = require('../models/Journals');
 module.exports = {
 	isLoggedIn: function (req, res, next) {
 		if (req.isAuthenticated()) return next();
-		console.log('You need to be singed in to do that');
+		req.flash('error', 'Sorry, Wizzards Only!');
+		res.redirect('/login');
 	},
 
 	checkUserJournal: function (req, res, next) {

@@ -198,3 +198,16 @@ body {
       color: #4e4e50;
       font-size: 2em;
       font-weight: 100; }
+
+.login-form {
+  width: 50%;
+  margin: 0 auto; }
+  .login-form_register {
+    color: #4183c4; }
+
+a:hover {
+  color: #2e5b88 !important; }
+
+.login-form_flash {
+  margin: 3em auto;
+  width: 50% !important; }
