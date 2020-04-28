@@ -188,4 +188,13 @@ body {
       font-weight: 100; }
 
 .ji-body {
-  margin-top: 8em; }
+  margin-top: 5em; }
+  .ji-body_button {
+    margin-bottom: 3em; }
+  .ji-body-card {
+    margin-top: 3em !important; }
+    .ji-body-card_title {
+      font-family: 'Dancing Script', cursive;
+      color: #4e4e50;
+      font-size: 2em;
+      font-weight: 100; }

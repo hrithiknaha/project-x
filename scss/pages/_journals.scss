@@ -19,6 +19,22 @@
 	}
 
 	&-body {
-		margin-top: 8em;
+		margin-top: 5em;
+
+		&_button {
+			margin-bottom: 3em;
+		}
+
+		&-card {
+			margin-top: 3em !important;
+			&_title {
+				// font-family: 'Bad Script', cursive;
+				// font-family: 'Amatic SC', cursive;
+				font-family: 'Dancing Script', cursive;
+				color: #4e4e50;
+				font-size: 2em;
+				font-weight: 100;
+			}
+		}
 	}
 }

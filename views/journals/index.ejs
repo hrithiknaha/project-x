@@ -8,13 +8,20 @@
 </section>
 
 <div class="ui container ji-body">
-	<div class="ui three column grid doubling stackable masonry grid">
+	<a href="/journals/write"
+		><button class="ui button ji-body_button">Write your own!</button></a
+	>
+	<div
+		class="ji-body-card ui three column grid doubling stackable masonry grid"
+	>
 		<% journals.forEach((journal) => { %>
 		<div class="column">
 			<a class="ui fluid red card" href="/journals/<%=journal._id%>">
 				<div class="content">
-					<div class="header"><%= journal.title %></div>
-					<div class="ui orange right ribbon tiny label">Specs</div>
+					<div class="ui red ji-body-card_title">
+						<%=journal.title%>
+					</div>
+					<div class="ui red right ribbon tiny label">Specs</div>
 					<!-- <div class="ui top right attached red label">Code</div> -->
 					<div class="description">
 						<p>
