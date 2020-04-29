@@ -132,6 +132,11 @@ table {
   .reset_btn > a:hover {
     color: inherit !important; }
 
+.reset_btn {
+  color: inherit; }
+  .reset_btn:hover {
+    color: inherit !important; }
+
 .btn-to-a {
   background: none !important;
   border: none;
@@ -233,6 +238,9 @@ body {
 
 .ui.comments {
   max-width: 100%; }
+
+.je-form {
+  margin-top: 3em; }
 
 .login-form {
   width: 50%;

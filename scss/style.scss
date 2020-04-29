@@ -1,10 +1,12 @@
 @import './base/reset';
 @import './base/colors';
 @import './base/font';
+
 @import './pages/homepage';
 
 @import './pages/journals/index';
 @import './pages/journals/journals';
+@import './pages/journals/edit';
 
 @import './pages/login';
 @import './pages/register';

@@ -135,6 +135,14 @@ table {
 	}
 }
 
+.reset_btn {
+	color: inherit;
+
+	&:hover {
+		color: inherit !important;
+	}
+}
+
 .btn-to-a {
 	background: none !important;
 	border: none;
