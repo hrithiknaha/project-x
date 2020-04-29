@@ -44,30 +44,37 @@
 			<h3 class="ui dividing header jj-comments">Comments</h3>
 			<div class="comment">
 				<% journal.comments.forEach((comment) => { %>
-				<!-- <% if(currentUser && comment.author.id.equals(currentUser._id))
-				{%>
-				<a
-					href="/journals/<%=journal._id%>/comments/<%=comment._id%>/edit"
-					>Edit</a
-				>
-				<form
-					action="/journals/<%=journal._id%>/comments/<%=comment._id %>"
-					method="post"
-				>
-					<button>Delete</button>
-				</form>
-				<% } %>  -->
-
 				<!-- <a class="avatar">
 					<img src="/images/avatar/small/matt.jpg" />
 				</a> -->
 				<div class="content">
-					<a class="author"><%=comment.author.username %></a>
+					<a href="/<%=comment.author.username %>" class="author"
+						><%=comment.author.username %></a
+					>
 					<div class="metadata">
 						<span class="date"><%=comment.writtenAt %></span>
 					</div>
 					<div class="text">
-						<%=comment.text %>
+						<%=comment.text %> <% if(currentUser &&
+						comment.author.id.equals(currentUser._id)) {%>
+						<div class="jj-comments_controls">
+							<div>
+								<a
+									href="/journals/<%=journal._id%>/comments/<%=comment._id%>/edit"
+									>Edit</a
+								>
+							</div>
+							<div>
+								<form
+									action="/journals/<%=journal._id%>/comments/<%=comment._id %>"
+									method="post"
+								>
+									<button class="btn-to-a">Delete</button>
+								</form>
+							</div>
+						</div>
+
+						<% } %>
 					</div>
 				</div>
 				<% }) %>

@@ -30,6 +30,12 @@
 		&_add {
 			margin-top: 2em !important;
 		}
+
+		&_controls {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			width: 5em;
+		}
 	}
 }
 
