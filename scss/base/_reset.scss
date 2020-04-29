@@ -127,14 +127,13 @@ table {
 	border-spacing: 0;
 }
 
-// a {
-// 	text-decoration: none;
-// 	color: black;
+.reset_btn > a {
+	color: inherit;
 
-// 	&:hover {
-// 		color: black;
-// 	}
-// }
+	&:hover {
+		color: inherit !important;
+	}
+}
 
 body {
 	font-family: 'Roboto', sans-serif;

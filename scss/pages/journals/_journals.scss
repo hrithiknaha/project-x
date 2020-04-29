@@ -23,6 +23,14 @@
 			}
 		}
 	}
+
+	&-comments {
+		font-weight: 100 !important;
+
+		&_add {
+			margin-top: 2em !important;
+		}
+	}
 }
 
 .ui.comments {

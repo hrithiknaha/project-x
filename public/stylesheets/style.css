@@ -127,6 +127,11 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+.reset_btn > a {
+  color: inherit; }
+  .reset_btn > a:hover {
+    color: inherit !important; }
+
 body {
   font-family: 'Roboto', sans-serif; }
 
@@ -207,6 +212,11 @@ body {
       color: white; }
       .jj-journal-author_controls_edit > a:hover {
         color: white !important; }
+
+.jj-comments {
+  font-weight: 100 !important; }
+  .jj-comments_add {
+    margin-top: 2em !important; }
 
 .ui.comments {
   max-width: 100%; }
