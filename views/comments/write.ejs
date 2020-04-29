@@ -1,6 +1,25 @@
-<form action="/journals/<%=journal._id%>/comments/write" method="post">
-	<label for="text">Commenting on <%=journal.title %></label>
-	<input type="text" name="text" id="text" />
+<%- include('../partials/header') %>
+<div class="ui container">
+	<div class="cn-form">
+		<p class="cn-form_header">Make it diabolic, will ya!</p>
+		<form
+			class="ui reply form"
+			<form
+			action="/journals/<%=journal._id%>/comments/write"
+			method="post"
+		>
+			<div class="field">
+				<label for="text">Commenting on <%=journal.title %></label>
+				<textarea name="text" id="text"></textarea>
+			</div>
 
-	<button type="submit">Comment</button>
-</form>
+			<div class="field">
+				<button class="ui positive button" type="submit">
+					Comment
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+<%- include('../partials/footer') %>
