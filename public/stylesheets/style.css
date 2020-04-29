@@ -239,8 +239,16 @@ body {
 .ui.comments {
   max-width: 100%; }
 
-.je-form {
-  margin-top: 3em; }
+.je-form_header {
+  font-size: 3em;
+  text-align: center;
+  font-family: 'Dancing Script', cursive; }
+
+.jn-form_header {
+  font-size: 3em;
+  text-align: center;
+  margin-top: 3em !important;
+  font-family: 'Dancing Script', cursive; }
 
 .login-form {
   width: 50%;
