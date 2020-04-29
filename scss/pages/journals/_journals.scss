@@ -1,0 +1,30 @@
+.jj {
+	&-journal {
+		margin-top: 5em !important;
+		&_title {
+			font-family: 'Dancing Script', cursive !important;
+			font-size: 2em;
+		}
+
+		&-author {
+			&_controls {
+				margin-top: 1em;
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				width: 10em;
+
+				&_edit > a {
+					color: white;
+
+					&:hover {
+						color: white !important;
+					}
+				}
+			}
+		}
+	}
+}
+
+.ui.comments {
+	max-width: 100%;
+}

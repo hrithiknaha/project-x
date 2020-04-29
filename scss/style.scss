@@ -2,7 +2,9 @@
 @import './base/colors';
 @import './base/font';
 @import './pages/homepage';
-@import './pages/journals';
+
+@import './pages/journals/index';
+@import './pages/journals/journals';
 
 @import './pages/login';
 @import './pages/register';

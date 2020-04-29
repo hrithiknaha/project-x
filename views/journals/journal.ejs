@@ -1,23 +1,146 @@
-<p><%= journal.title%></p>
-<p><%= journal.body%></p>
-<p><%= journal.author.username%></p>
-<% if(currentUser && journal.author.id.equals(currentUser._id)) {%>
-<a href="/journals/<%=journal._id%>/edit">Edit</a>
-<form action="/journals/<%=journal._id%>/delete" method="post">
-	<button>Delete</button>
-</form>
-<% } %>
+<%- include('../partials/header') %>
 
-<h4>Comments</h4>
-<% journal.comments.forEach((comment) => { %>
-<p><%=comment.author.username %></p>
-<p><%=comment.text %></p>
-<% if(currentUser && comment.author.id.equals(currentUser._id)) {%>
-<a href="/journals/<%=journal._id%>/comments/<%=comment._id%>/edit">Edit</a>
-<form
-	action="/journals/<%=journal._id%>/comments/<%=comment._id %>"
-	method="post"
->
-	<button>Delete</button>
-</form>
-<% } %> <% }) %>
+<div class="jj">
+	<div class="ui container">
+		<div class="ui piled red segment jj-journal">
+			<p class="jj-journal_title"><%= journal.title%></p>
+			<p><%= journal.body%></p>
+			<br />
+			<br />
+			<div class="jj-journal-author">
+				<p>
+					<em>By </em><span class="jj-author_text"></span>
+					<a href="/<%=journal.author.username%>">
+						<em><%=journal.author.username%></em>
+					</a>
+				</p>
+				<div class="ui right floated jj-journal-author_controls">
+					<% if(currentUser &&
+					journal.author.id.equals(currentUser._id)) {%>
+					<div>
+						<button
+							class="ui secondary mini button jj-journal-author_controls_edit"
+						>
+							<a href="/journals/<%=journal._id%>/edit">Edit</a>
+						</button>
+					</div>
+					<div>
+						<form
+							action="/journals/<%=journal._id%>/delete"
+							method="post"
+						>
+							<button class="ui mini button">
+								Delete
+							</button>
+						</form>
+					</div>
+
+					<% } %>
+				</div>
+			</div>
+		</div>
+
+		<div class="ui comments">
+			<h3 class="ui dividing header">Comments</h3>
+			<div class="comment">
+				<a class="avatar">
+					<img src="/images/avatar/small/matt.jpg" />
+				</a>
+				<div class="content">
+					<a class="author">Matt</a>
+					<div class="metadata">
+						<span class="date">Today at 5:42PM</span>
+					</div>
+					<div class="text">
+						How artistic!
+					</div>
+					<div class="actions">
+						<a class="reply">Reply</a>
+					</div>
+				</div>
+			</div>
+			<div class="comment">
+				<a class="avatar">
+					<img src="/images/avatar/small/elliot.jpg" />
+				</a>
+				<div class="content">
+					<a class="author">Elliot Fu</a>
+					<div class="metadata">
+						<span class="date">Yesterday at 12:30AM</span>
+					</div>
+					<div class="text">
+						<p>
+							This has been very useful for my research. Thanks as
+							well!
+						</p>
+					</div>
+					<div class="actions">
+						<a class="reply">Reply</a>
+					</div>
+				</div>
+				<div class="comments">
+					<div class="comment">
+						<a class="avatar">
+							<img src="/images/avatar/small/jenny.jpg" />
+						</a>
+						<div class="content">
+							<a class="author">Jenny Hess</a>
+							<div class="metadata">
+								<span class="date">Just now</span>
+							</div>
+							<div class="text">
+								Elliot you are always so right :)
+							</div>
+							<div class="actions">
+								<a class="reply">Reply</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="comment">
+				<a class="avatar">
+					<img src="/images/avatar/small/joe.jpg" />
+				</a>
+				<div class="content">
+					<a class="author">Joe Henderson</a>
+					<div class="metadata">
+						<span class="date">5 days ago</span>
+					</div>
+					<div class="text">
+						Dude, this is awesome. Thanks so much
+					</div>
+					<div class="actions">
+						<a class="reply">Reply</a>
+					</div>
+				</div>
+			</div>
+			<form class="ui reply form">
+				<div class="field" data-children-count="1">
+					<textarea></textarea>
+				</div>
+				<div class="ui blue labeled submit icon button">
+					<i class="icon edit"></i> Add Reply
+				</div>
+			</form>
+		</div>
+
+		<h4>Comments</h4>
+		<% journal.comments.forEach((comment) => { %>
+		<p><%=comment.author.username %></p>
+		<p><%=comment.text %></p>
+		<% if(currentUser && comment.author.id.equals(currentUser._id)) {%>
+		<a href="/journals/<%=journal._id%>/comments/<%=comment._id%>/edit"
+			>Edit</a
+		>
+		<form
+			action="/journals/<%=journal._id%>/comments/<%=comment._id %>"
+			method="post"
+		>
+			<button>Delete</button>
+		</form>
+		<% } %> <% }) %>
+	</div>
+</div>
+
+<%- include('../partials/footer') %>

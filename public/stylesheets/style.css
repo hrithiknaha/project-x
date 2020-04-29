@@ -127,12 +127,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-a {
-  text-decoration: none;
-  color: white; }
-  a:hover {
-    color: white; }
-
 body {
   font-family: 'Roboto', sans-serif; }
 
@@ -198,6 +192,24 @@ body {
       color: #4e4e50;
       font-size: 2em;
       font-weight: 100; }
+
+.jj-journal {
+  margin-top: 5em !important; }
+  .jj-journal_title {
+    font-family: 'Dancing Script', cursive !important;
+    font-size: 2em; }
+  .jj-journal-author_controls {
+    margin-top: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 10em; }
+    .jj-journal-author_controls_edit > a {
+      color: white; }
+      .jj-journal-author_controls_edit > a:hover {
+        color: white !important; }
+
+.ui.comments {
+  max-width: 100%; }
 
 .login-form {
   width: 50%;
