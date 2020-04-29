@@ -250,6 +250,13 @@ body {
   margin-top: 3em !important;
   font-family: 'Dancing Script', cursive; }
 
+.ce-form {
+  margin-top: 3em; }
+  .ce-form_header {
+    font-size: 3em;
+    text-align: center;
+    font-family: 'Dancing Script', cursive; }
+
 .login-form {
   width: 50%;
   margin: 0 auto; }
