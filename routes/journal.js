@@ -21,6 +21,7 @@ router.get('/write', isLoggedIn, (req, res) => {
 router.post('/write', isLoggedIn, (req, res) => {
 	const title = req.body.title;
 	const body = req.body.body;
+	const prologue = req.body.prologue;
 	const author = {
 		id: req.user._id,
 		username: req.user.username
@@ -29,6 +30,7 @@ router.post('/write', isLoggedIn, (req, res) => {
 	const journal = new Journals({
 		title,
 		body,
+		prologue,
 		author
 	});
 
@@ -63,6 +65,7 @@ router.post('/:journal_id/edit', isLoggedIn, checkUserJournal, (req, res) => {
 		if (err) return console.log('Error in accessing the db');
 		journal.title = req.body.title;
 		journal.body = req.body.body;
+		journal.prologue = req.body.prologue;
 		journal.save();
 		res.redirect('/journals/' + journal.id);
 	});
