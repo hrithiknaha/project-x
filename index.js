@@ -17,7 +17,7 @@ const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
 const accountRoutes = require('./routes/account');
 const journalRoutes = require('./routes/journal');
-const commentsRoutes = require('./routes/Comments');
+const commentsRoutes = require('./routes/comments');
 
 //App
 const app = express();
