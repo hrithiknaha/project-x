@@ -1,28 +1,52 @@
 <%- include ('../partials/header') %>
 
 <div class="ui container">
-	<h1>Hello <%=user %></h1>
+	<div class="ai">
+		<div class="ai-user">
+			<h1 class="ai-user_name">Hello <%=user.username %></h1>
+			<p>Wizard Since <%=user.dateCreates %></p>
+		</div>
+		<div class="ai-controls">
+			<div>
+				<a href="/journals/write"
+					><button class="ui button ji-body_button">
+						Write your own!
+					</button></a
+				>
+			</div>
+			<div class="ai-controls_logout">
+				<a href="/logout"
+					><button class="ui button ji-body_button">Logout</button></a
+				>
+			</div>
+		</div>
 
-	<div class="ui three column grid doubling stackable masonry grid">
-		<% journals.forEach((journal) => { %>
-		<div class="column">
-			<a class="ui fluid card" href="/journals/<%=journal._id%>">
-				<div class="content">
-					<div class="header"><%= journal.title %></div>
-					<div class="meta">Animal</div>
-					<div class="description">
-						<p>
-							<%= journal.body %>
-						</p>
+		<div
+			class="ji-body-card ui three column grid doubling stackable masonry grid"
+		>
+			<% journals.forEach((journal) => { %>
+			<div class="column">
+				<a class="ui fluid red card" href="/journals/<%=journal._id%>">
+					<div class="content">
+						<div class="ui red ji-body-card_title">
+							<%=journal.title%>
+						</div>
+						<div class="ui red right ribbon tiny label">Specs</div>
+						<!-- <div class="ui top right attached red label">Code</div> -->
+						<div class="description">
+							<p>
+								<%= journal.body %>
+							</p>
+						</div>
 					</div>
-				</div>
-				<!-- <div class="extra content">
+					<!-- <div class="extra content">
                             <i class="check icon"></i>
                             121 Votes
                         </div> -->
-			</a>
+				</a>
+			</div>
+			<% }) %>
 		</div>
-		<% }) %>
 	</div>
 </div>
 

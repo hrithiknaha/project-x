@@ -1,0 +1,22 @@
+.ai {
+	&-user {
+		width: 50%;
+		margin: 3em auto;
+		text-align: center;
+
+		&_name {
+			font-size: 3em;
+			font-family: 'Bad Script', cursive;
+		}
+	}
+
+	&-controls {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		margin-bottom: 3em;
+
+		&_logout {
+			place-self: end;
+		}
+	}
+}

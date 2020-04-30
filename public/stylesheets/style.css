@@ -263,6 +263,21 @@ body {
     text-align: center;
     font-family: 'Dancing Script', cursive; }
 
+.ai-user {
+  width: 50%;
+  margin: 3em auto;
+  text-align: center; }
+  .ai-user_name {
+    font-size: 3em;
+    font-family: 'Bad Script', cursive; }
+
+.ai-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 3em; }
+  .ai-controls_logout {
+    place-self: end; }
+
 .login-form {
   width: 50%;
   margin: 0 auto; }
