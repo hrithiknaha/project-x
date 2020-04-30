@@ -37,12 +37,17 @@
 				href="/journals/<%=journal._id%>"
 			>
 				<div class="content">
-					<div class="ui red ji-body-card_title">
-						<%=journal.title%>
+					<div class="card-label">
+						<p class="ui red ji-body-card_title">
+							<%=journal.title%>
+						</p>
+						<p
+							class="ui <%=journal.genre%> right ribbon tiny label card-label_label"
+						>
+							<%=journal.genre%>
+						</p>
 					</div>
-					<div class="ui <%=journal.genre%> right ribbon tiny label">
-						<%=journal.genre%>
-					</div>
+
 					<!-- <div class="ui top right attached red label">Code</div> -->
 					<div class="description">
 						<p>

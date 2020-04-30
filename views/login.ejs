@@ -13,48 +13,54 @@
 	</div>
 	<% } %>
 </div>
-
-<div class="login-form">
-	<div class="ui attached message">
-		<div class="header">
-			Welcome !
+<div class="ui container">
+	<div class="login-form">
+		<div class="ui attached message">
+			<div class="header">
+				Welcome !
+			</div>
+			<p>Good day, innit!</p>
 		</div>
-		<p>Good day, innit!</p>
-	</div>
-	<form class="ui form attached fluid segment" action="/login" method="post">
-		<div class="field">
-			<label for="username">Username</label>
-			<input
-				type="text"
-				name="username"
-				id="username"
-				placeholder="Username"
-			/>
-		</div>
-		<div class="field">
-			<label for="password">Password</label>
-			<input
-				type="password"
-				name="password"
-				id="password"
-				placeholder="Password"
-			/>
-		</div>
-		<!-- <div class="inline field">
+		<form
+			class="ui form attached fluid segment"
+			action="/login"
+			method="post"
+		>
+			<div class="field">
+				<label for="username">Username</label>
+				<input
+					type="text"
+					name="username"
+					id="username"
+					placeholder="Username"
+				/>
+			</div>
+			<div class="field">
+				<label for="password">Password</label>
+				<input
+					type="password"
+					name="password"
+					id="password"
+					placeholder="Password"
+				/>
+			</div>
+			<!-- <div class="inline field">
 			<div class="ui checkbox">
 				<input type="checkbox" id="terms" />
 				<label for="terms">I agree to the terms and conditions</label>
 			</div>
 		</div> -->
-		<button class="ui positive labeled icon button" type="submit">
-			<i class="unlock alternate icon"></i>
-			Login
-		</button>
-	</form>
-	<div class="ui bottom attached warning message">
-		<i class="icon help"></i>
-		Dumbledore didn't send you the letter yet?
-		<a class="login-form_register" href="/register">Sign here</a> instead.
+			<button class="ui positive labeled icon button" type="submit">
+				<i class="unlock alternate icon"></i>
+				Login
+			</button>
+		</form>
+		<div class="ui bottom attached warning message">
+			<i class="icon help"></i>
+			Dumbledore didn't send you the letter yet?
+			<a class="login-form_register" href="/register">Sign here</a>
+			instead.
+		</div>
 	</div>
 </div>
 

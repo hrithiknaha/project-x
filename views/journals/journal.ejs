@@ -9,6 +9,11 @@
 					Journals
 				</button></a
 			>
+			<%if(!currentUser){%>
+			<a class="jj-button_login" href="/login"
+				><div class="ui button">Login</div></a
+			>
+			<%}%>
 		</div>
 		<div class="ui piled <%=journal.genre%> segment jj-journal">
 			<p class="jj-journal_title"><%= journal.title%></p>

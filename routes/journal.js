@@ -39,6 +39,7 @@ router.post('/write', isLoggedIn, (req, res) => {
 	journal.save((err, recentlyCreatedJournal) => {
 		if (err) return console.log(err);
 		console.log(recentlyCreatedJournal);
+		res.redirect('/journals/' + recentlyCreatedJournal._id);
 	});
 });
 

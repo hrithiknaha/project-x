@@ -5,7 +5,7 @@
 		height: 80vh;
 
 		&-div {
-			width: 50em;
+			// width: 50em;
 			margin: 0 auto;
 			text-align: center;
 			color: white;
@@ -45,5 +45,13 @@
 				place-self: end;
 			}
 		}
+	}
+}
+
+.card-label {
+	display: grid;
+	grid-template-columns: 80% 20%;
+	&_label {
+		height: fit-content;
 	}
 }

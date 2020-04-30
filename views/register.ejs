@@ -14,49 +14,51 @@
 	<% } %>
 </div>
 
-<div class="registration-form">
-	<div class="ui attached message">
-		<div class="header">
-			You're a wizard too !
+<div class="ui container">
+	<div class="registration-form">
+		<div class="ui attached message">
+			<div class="header">
+				You're a wizard too !
+			</div>
+			<p>Sign up, please!</p>
 		</div>
-		<p>Sign up, please!</p>
-	</div>
-	<form
-		class="ui form attached fluid segment"
-		action="/register"
-		method="post"
-	>
-		<div class="field">
-			<label for="email">Email</label>
-			<input type="email" name="email" id="email" />
-		</div>
-		<div class="field">
-			<label for="name">Name</label>
-			<input type="text" name="name" id="name" />
-		</div>
-		<div class="field">
-			<label for="username">Username</label>
-			<input type="text" name="username" id="username" />
-		</div>
-		<div class="field">
-			<label for="password">Password</label>
-			<input type="password" name="password" id="password" />
-		</div>
-		<!-- <div class="inline field">
+		<form
+			class="ui form attached fluid segment"
+			action="/register"
+			method="post"
+		>
+			<div class="field">
+				<label for="email">Email</label>
+				<input type="email" name="email" id="email" />
+			</div>
+			<div class="field">
+				<label for="name">Name</label>
+				<input type="text" name="name" id="name" />
+			</div>
+			<div class="field">
+				<label for="username">Username</label>
+				<input type="text" name="username" id="username" />
+			</div>
+			<div class="field">
+				<label for="password">Password</label>
+				<input type="password" name="password" id="password" />
+			</div>
+			<!-- <div class="inline field">
 			<div class="ui checkbox">
 				<input type="checkbox" id="terms" />
 				<label for="terms">I agree to the terms and conditions</label>
 			</div>
 		</div> -->
-		<button class="ui positive labeled icon button" type="submit">
-			<i class="unlock alternate icon"></i>
-			Register
-		</button>
-	</form>
-	<div class="ui bottom attached warning message">
-		<i class="icon help"></i>
-		Already have the letter?
-		<a class="login-form_register" href="/login">Login here</a> instead.
+			<button class="ui positive labeled icon button" type="submit">
+				<i class="unlock alternate icon"></i>
+				Register
+			</button>
+		</form>
+		<div class="ui bottom attached warning message">
+			<i class="icon help"></i>
+			Already have the letter?
+			<a class="login-form_register" href="/login">Login here</a> instead.
+		</div>
 	</div>
 </div>
 

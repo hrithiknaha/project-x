@@ -31,6 +31,7 @@ router.post('/write', isLoggedIn, (req, res) => {
 			if (err) return console.log('Error is accesing DB');
 			journal.comments.push(comment);
 			journal.save();
+			res.redirect('/journals/' + journal._id);
 		});
 	});
 });

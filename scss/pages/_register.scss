@@ -1,6 +1,11 @@
 .registration-form {
+	margin: 0em auto;
 	width: 50%;
-	margin: 0 auto;
+
+	@include atSmall {
+		margin: 10 auto;
+		width: 100%;
+	}
 }
 
 .register-form_flash {

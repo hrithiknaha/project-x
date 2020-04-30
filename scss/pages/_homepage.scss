@@ -5,15 +5,24 @@
 		height: 100vh;
 
 		&-div {
-			width: 50em;
+			// width: 50em;
 			margin: 0 auto;
 			text-align: center;
 			color: white;
 			padding-top: 12em;
 
+			@include atSmall {
+				padding-top: 18em;
+				width: 50%;
+			}
+
 			&_title {
 				font-size: 3em;
 				font-weight: 100;
+
+				@include atSmall {
+					font-size: 2em;
+				}
 			}
 
 			&_subtitle {
@@ -21,6 +30,10 @@
 				font-size: 3em;
 				font-family: 'Dancing Script', cursive;
 				font-weight: 200;
+
+				@include atSmall {
+					font-size: 2em;
+				}
 			}
 
 			&_arrow {
@@ -53,6 +66,21 @@
 					margin-top: 3em !important;
 				}
 			}
+
+			@include atSmall {
+				display: block;
+				text-align: center;
+				margin-bottom: 2em;
+
+				> div > img {
+					width: 100%;
+					padding-bottom: 2em;
+				}
+			}
+		}
+
+		@include atSmall {
+			margin-top: 1em;
 		}
 	}
 }

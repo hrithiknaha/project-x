@@ -1,6 +1,11 @@
 .login-form {
-	width: 50%;
 	margin: 0 auto;
+	width: 50%;
+
+	@include atSmall {
+		margin: 10 auto !important;
+		width: 100%;
+	}
 
 	&_register {
 		color: #4183c4;
