@@ -9,7 +9,7 @@
 		"css:watch": "node-sass scss/style.scss -o public/stylesheets -w"
 	},
 	"engines": {
-		"node": "12.12.2"
+		"node": "12.16.2"
 	},
 	"author": "Hrithik Naha",
 	"license": "ISC",
