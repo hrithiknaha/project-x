@@ -9,6 +9,11 @@ const journalSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
+	prologue: {
+		type: String,
+		required: true,
+		max: 90
+	},
 	writtenAt: {
 		type: Date,
 		default: Date.now
