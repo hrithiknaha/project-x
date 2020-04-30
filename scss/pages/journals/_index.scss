@@ -36,5 +36,14 @@
 				font-weight: 100;
 			}
 		}
+
+		&_button {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+
+			&_profile {
+				place-self: end;
+			}
+		}
 	}
 }

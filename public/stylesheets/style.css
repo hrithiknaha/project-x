@@ -211,6 +211,11 @@ body {
       color: #4e4e50;
       font-size: 2em;
       font-weight: 100; }
+  .ji-body_button {
+    display: grid;
+    grid-template-columns: 1fr 1fr; }
+    .ji-body_button_profile {
+      place-self: end; }
 
 .jj-journal {
   margin-top: 5em !important; }

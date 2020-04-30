@@ -8,9 +8,25 @@
 </section>
 
 <div class="ui container ji-body">
-	<a href="/journals/write"
-		><button class="ui button ji-body_button">Write your own!</button></a
-	>
+	<div class="ji-body_button">
+		<div>
+			<a href="/journals/write"
+				><button class="ui button ji-body_button">
+					Write your own!
+				</button></a
+			>
+		</div>
+		<% if(currentUser) { %>
+		<div class="ji-body_button_profile">
+			<a href="/<%= currentUser.username %>"
+				><button class="ui button ji-body_button">
+					<%= currentUser.username %>
+				</button></a
+			>
+		</div>
+		<% } %>
+	</div>
+
 	<div
 		class="ji-body-card ui three column grid doubling stackable masonry grid"
 	>
