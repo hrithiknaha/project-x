@@ -14,6 +14,10 @@ const journalSchema = new mongoose.Schema({
 		required: true,
 		max: 90
 	},
+	genre: {
+		type: String,
+		required: true
+	},
 	writtenAt: {
 		type: Date,
 		default: Date.now

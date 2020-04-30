@@ -21,7 +21,7 @@ router.post('/register', (req, res) => {
 		//Redirecting to home page after successful login and registration
 		passport.authenticate('local')(req, res, () => {
 			console.log('Successful registration welcome ' + username);
-			res.redirect('/' + username);
+			res.redirect('/journals');
 		});
 	});
 });
@@ -38,7 +38,7 @@ router.post(
 		successFlash: 'Welcome to YelpCamp!'
 	}),
 	function (req, res) {
-		res.redirect('/' + req.user.username);
+		res.redirect('/journals');
 	}
 );
 

@@ -10,7 +10,7 @@
 				</button></a
 			>
 		</div>
-		<div class="ui piled red segment jj-journal">
+		<div class="ui piled <%=journal.genre%> segment jj-journal">
 			<p class="jj-journal_title"><%= journal.title%></p>
 			<p><%= journal.body%></p>
 			<br />
@@ -26,11 +26,13 @@
 					<% if(currentUser &&
 					journal.author.id.equals(currentUser._id)) {%>
 					<div>
-						<button
-							class="ui secondary mini button jj-journal-author_controls_edit"
+						<a href="/journals/<%=journal._id%>/edit"
+							><button
+								class="ui secondary mini button jj-journal-author_controls_edit"
+							>
+								Edit
+							</button></a
 						>
-							<a href="/journals/<%=journal._id%>/edit">Edit</a>
-						</button>
 					</div>
 					<div>
 						<form

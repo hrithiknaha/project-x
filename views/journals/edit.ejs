@@ -21,13 +21,30 @@
 					id="prologue"
 					cols="5"
 				>
-					<%=journal.prologue%></textarea
+<%=journal.prologue%></textarea
 				>
 			</div>
 
 			<div class="field">
 				<label for="body">Body</label>
 				<textarea name="body" id="body"><%= journal.body%></textarea>
+			</div>
+
+			<div class="field">
+				<label>Genre</label>
+				<div class="ui selection dropdown genre">
+					<input type="hidden" name="genre" />
+					<i class="dropdown icon"></i>
+					<div class="default text">Genre</div>
+					<div class="menu">
+						<div class="item" data-value="red">Blog</div>
+						<div class="item" data-value="orange">Poem</div>
+						<div class="item" data-value="green">Journal</div>
+						<div class="item" data-value="teal">Poetry</div>
+						<div class="item" data-value="violet">Thoughts</div>
+						<div class="item" data-value="black">Entry</div>
+					</div>
+				</div>
 			</div>
 
 			<button class="ui positive button" type="submit">Edit</button>

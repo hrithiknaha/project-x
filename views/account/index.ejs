@@ -31,12 +31,19 @@
 		>
 			<% journals.forEach((journal) => { %>
 			<div class="column">
-				<a class="ui fluid red card" href="/journals/<%=journal._id%>">
+				<a
+					class="ui fluid <%=journal.genre%> card"
+					href="/journals/<%=journal._id%>"
+				>
 					<div class="content">
 						<div class="ui red ji-body-card_title">
 							<%=journal.title%>
 						</div>
-						<div class="ui red right ribbon tiny label">Specs</div>
+						<div
+							class="ui <%=journal.genre%> right ribbon tiny label"
+						>
+							Specs
+						</div>
 						<!-- <div class="ui top right attached red label">Code</div> -->
 						<div class="description">
 							<p>

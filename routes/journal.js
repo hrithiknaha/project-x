@@ -22,6 +22,7 @@ router.post('/write', isLoggedIn, (req, res) => {
 	const title = req.body.title;
 	const body = req.body.body;
 	const prologue = req.body.prologue;
+	const genre = req.body.genre;
 	const author = {
 		id: req.user._id,
 		username: req.user.username
@@ -31,6 +32,7 @@ router.post('/write', isLoggedIn, (req, res) => {
 		title,
 		body,
 		prologue,
+		genre,
 		author
 	});
 
@@ -66,6 +68,7 @@ router.post('/:journal_id/edit', isLoggedIn, checkUserJournal, (req, res) => {
 		journal.title = req.body.title;
 		journal.body = req.body.body;
 		journal.prologue = req.body.prologue;
+		journal.genre = req.body.genre;
 		journal.save();
 		res.redirect('/journals/' + journal.id);
 	});
