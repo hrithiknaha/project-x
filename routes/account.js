@@ -10,9 +10,9 @@ router.get('/', (req, res) => {
 		{ 'author.username': req.params.username },
 		(err, journals) => {
 			User.findOne({ username: req.params.username }, (err, user) => {
-				console.log(user);
-				console.log(journals);
-				// res.render('account/index', { user, journals });
+				//res.send(user);
+				//res.send(journals);
+				res.render('account/index', { user, journals });
 			});
 		}
 	);

@@ -1,4 +1,4 @@
-<%- include ('../partials/header') %> <%=user %>
+<%- include ('../partials/header') %>
 
 <div class="ui container">
 	<div class="ai">
@@ -19,11 +19,14 @@
 					</button></a
 				>
 			</div>
+
+			<%if(currentUser){%>
 			<div class="ai-controls_logout">
 				<a href="/logout"
 					><button class="ui button ji-body_button">Logout</button></a
 				>
 			</div>
+			<%}%>
 		</div>
 
 		<div
