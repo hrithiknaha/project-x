@@ -249,6 +249,9 @@ body {
   .jj-button_login {
     place-self: end; }
 
+.jj-p {
+  white-space: break-spaces; }
+
 .jj-journal_title {
   font-family: 'Dancing Script', cursive !important;
   font-size: 2em; }

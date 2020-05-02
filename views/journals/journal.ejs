@@ -17,7 +17,7 @@
 		</div>
 		<div class="ui piled <%=journal.genre%> segment jj-journal">
 			<p class="jj-journal_title"><%= journal.title%></p>
-			<p><%= journal.body%></p>
+			<p class="jj-p"><%= journal.body%></p>
 			<br />
 			<br />
 			<div class="jj-journal-author">
@@ -94,11 +94,11 @@
 				</div>
 				<% }) %>
 			</div>
-			<div class="mini ui button jj-comments_add reset_btn">
-				<a href="/journals/<%=journal._id%>/comments/write"
-					>Add Comment</a
-				>
-			</div>
+			<a href="/journals/<%=journal._id%>/comments/write"
+				><button class="tiny ui button jj-comments_add">
+					Add Comment
+				</button></a
+			>
 		</div>
 	</div>
 </div>

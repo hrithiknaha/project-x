@@ -4,11 +4,18 @@ const Journals = require('../models/Journals');
 
 const { isLoggedIn } = require('../middleware/index');
 
-router.get('/', isLoggedIn, (req, res) => {
-	Journals.find({ 'author.id': req.user._id }, (err, journals) => {
-		res.render('account/index', { user: req.user, journals });
-		console.log(req.user);
-	});
+router.get('/', (req, res) => {
+	console.log(req.params);
+	Journals.find(
+		{ 'author.username': req.params.username },
+		(err, journals) => {
+			User.findOne({ username: req.params.username }, (err, user) => {
+				console.log(user);
+				console.log(journals);
+				// res.render('account/index', { user, journals });
+			});
+		}
+	);
 });
 
 module.exports = router;

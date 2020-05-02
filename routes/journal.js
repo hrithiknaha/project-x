@@ -7,8 +7,8 @@ const { isLoggedIn, checkUserJournal } = require('../middleware/index');
 router.get('/', (req, res) => {
 	Journals.find((err, journals) => {
 		if (err) return console.log(err);
+
 		res.render('journals/index', { journals });
-		console.log(journals);
 	});
 });
 
