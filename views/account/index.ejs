@@ -46,7 +46,12 @@
 							<p
 								class="ui <%=journal.genre%> right ribbon tiny label card-label_label"
 							>
-								<%=journal.genre%>
+								<%switch (journal.genre) { case 'red':%> Blog <%
+								break %> <%case 'orange':%> Poem <% break %>
+								<%case 'green':%> Journal <% break %> <%case
+								'teal':%> Poetry <% break %> <%case 'violet':%>
+								Thoughts <% break %> <%case 'black':%> Entry <%
+								break %> <%}%>
 							</p>
 						</div>
 						<!-- <div class="ui top right attached red label">Code</div> -->
@@ -56,10 +61,18 @@
 							</p>
 						</div>
 					</div>
-					<!-- <div class="extra content">
-                            <i class="check icon"></i>
-                            121 Votes
-                        </div> -->
+					<div class="extra content">
+						<div
+							class="ui heart rating"
+							data-rating="1"
+							data-max-rating="3"
+						>
+							<span class="left floated like">
+								<i class="like icon"></i>
+								Like
+							</span>
+						</div>
+					</div>
 				</a>
 			</div>
 			<% }) %>
