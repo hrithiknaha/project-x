@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import React from 'react';
-
 const Main = () => {
 	return (
 		<div>
-			<h1>Test From Front end React</h1>
+			<h1>Test From Front end React!!!</h1>
 		</div>
 	);
 };
