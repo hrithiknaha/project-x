@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const session = require('express-session');
-const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 //Local Referencing
 const User = require('./models/Users');
@@ -13,14 +13,13 @@ const Journals = require('./models/Journals');
 const Comment = require('./models/Comments');
 
 //Requiring routes
-const indexRoutes = require('./routes/index');
-const authRoutes = require('./routes/auth');
-const accountRoutes = require('./routes/account');
-const journalRoutes = require('./routes/journal');
-const commentsRoutes = require('./routes/comments');
+const authIndex = require('./Routes/auth');
 
 //App
 const app = express();
+
+//CORS
+app.use(cors());
 
 //Dotenv file
 dotenv.config();
@@ -36,9 +35,7 @@ mongoose.connect(
 );
 
 //Express Configuration
-app.set('view engine', 'ejs');
-app.use(express.static(__dirname + '/public'));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 //Cookie Configuration
 app.use(cookieParser('secret'));
@@ -53,7 +50,7 @@ app.use(
 );
 
 //Flash Configuration
-app.use(flash());
+// app.use(flash());
 
 //Passport Configuration
 app.use(passport.initialize());
@@ -63,19 +60,15 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 //Setting up local variables
-app.use(function (req, res, next) {
-	res.locals.currentUser = req.user;
-	res.locals.success = req.flash('success');
-	res.locals.error = req.flash('error');
-	next();
-});
+// app.use(function (req, res, next) {
+// 	res.locals.currentUser = req.user;
+// 	res.locals.success = req.flash('success');
+// 	res.locals.error = req.flash('error');
+// 	next();
+// });
 
 //Routes
-app.use('/', indexRoutes);
-app.use('/', authRoutes);
-app.use('/journals', journalRoutes);
-app.use('/:username', accountRoutes);
-app.use('/journals/:journal_id/comments', commentsRoutes);
+app.use('/account', authIndex);
 
 //Server Configuration
 const PORT = process.env.PORT || 3000;

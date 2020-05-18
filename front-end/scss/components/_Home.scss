@@ -1,0 +1,12 @@
+.home {
+	&-write {
+		font-weight: 500;
+	}
+
+	&-body {
+		&_title {
+			font-weight: 100;
+			font-style: italic;
+		}
+	}
+}
