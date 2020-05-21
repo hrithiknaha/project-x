@@ -26,7 +26,7 @@ const LogInForm = () => {
 		};
 
 		try {
-			const response = await Axios.post('/account/login', body);
+			const response = await Axios.post('/login', body);
 			const { err } = response.data;
 			if (err) {
 				return appDispatch({
@@ -34,7 +34,7 @@ const LogInForm = () => {
 					value: err
 				});
 			}
-			localStorage.setItem('fowUsername', username);
+			console.log(response.data);
 			appDispatch({ type: 'login', user: response.data });
 		} catch (e) {
 			console.log('Something wrong happened' + e);

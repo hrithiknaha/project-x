@@ -1,0 +1,19 @@
+.journal-hover:hover {
+	animation: example 0.1s ease;
+	animation-fill-mode: forwards;
+}
+
+@keyframes example {
+	0% {
+		transform: translateY(0px);
+	}
+	100% {
+		transform: translateY(5px);
+	}
+}
+
+.journal {
+	&-title {
+		width: 80%;
+	}
+}

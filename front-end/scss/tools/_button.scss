@@ -1,0 +1,23 @@
+.button {
+	font-weight: 500;
+
+	> a {
+		color: inherit;
+		text-decoration: none;
+
+		&:hover {
+			color: inherit;
+			text-decoration: none;
+		}
+	}
+}
+
+a.no-deco-link {
+	color: inherit;
+	text-decoration: none;
+
+	&:hover {
+		color: inherit;
+		text-decoration: none;
+	}
+}

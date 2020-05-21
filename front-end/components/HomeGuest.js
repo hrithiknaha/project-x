@@ -5,7 +5,7 @@ import SignUpForm from './SignUpForm';
 import LogInForm from './LogInForm';
 
 const HomeGuest = () => {
-	const [switchT, setSwitchT] = useState(true);
+	const [switchT, setSwitchT] = useState(false);
 
 	function handleSwitch() {
 		setSwitchT(!switchT);
@@ -37,7 +37,7 @@ const HomeGuest = () => {
 							className='custom-control-label text-muted'
 							htmlFor='customSwitch1'
 						>
-							{switchT ? 'Log In' : 'Sign Up'}
+							{switchT ? 'Sign Up' : 'Log In'}
 						</label>
 					</div>
 				</div>

@@ -1,0 +1,11 @@
+.loading {
+	margin-top: 3em;
+	&-text {
+		text-align: center;
+		font-size: 1.5rem;
+	}
+	&-main {
+		width: 5rem;
+		height: 5rem;
+	}
+}

@@ -1,0 +1,48 @@
+$blog: #f44336;
+$entry: #673ab7;
+$poetry: #2196f3;
+$thoughts: #00bcd4;
+$journal: #ff9800;
+$quote: #009688;
+
+.blog {
+	border-color: $blog !important;
+	> div > h5 > span {
+		background-color: $blog;
+	}
+}
+
+.entry {
+	border-color: $entry !important;
+	> div > h5 > span {
+		background-color: $entry;
+	}
+}
+
+.poetry {
+	border-color: $poetry !important;
+	> div > h5 > span {
+		background-color: $poetry;
+	}
+}
+
+.thoughts {
+	border-color: $thoughts !important;
+	> div > h5 > span {
+		background-color: $thoughts;
+	}
+}
+
+.journal {
+	border-color: $journal !important;
+	> div > h5 > span {
+		background-color: $journal;
+	}
+}
+
+.quote {
+	border-color: $quote !important;
+	> div > h5 > span {
+		background-color: $quote;
+	}
+}

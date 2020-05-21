@@ -30,7 +30,12 @@ router.post('/register', (req, res) => {
 // });
 
 router.post('/login', function (req, res) {
-	passport.authenticate('local', function (err, user, info) {
+	console.log('Logged In');
+	passport.authenticate('local', { session: true }, function (
+		err,
+		user,
+		info
+	) {
 		if (err) return res.json({ err: err.message });
 		if (!user) return res.json({ err: info.message }); //Sending unauthorized message
 
@@ -41,10 +46,16 @@ router.post('/login', function (req, res) {
 				username: req.user.username,
 				email: req.user.email,
 				name: req.user.name,
-				date: req.user.dateCreates
+				date: req.user.dateCreated
+				// user: req.user
 			});
 		});
 	})(req, res);
+});
+
+router.get('/logout', (req, res) => {
+	console.log('Loggin out');
+	req.logout();
 });
 
 module.exports = router;

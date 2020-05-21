@@ -13,16 +13,38 @@ const Journals = require('./models/Journals');
 const Comment = require('./models/Comments');
 
 //Requiring routes
-const authIndex = require('./Routes/auth');
+const authRoutes = require('./Routes/auth');
+const profileRoutes = require('./Routes/profile');
+const journalRoutes = require('./Routes/journal');
 
 //App
 const app = express();
 
-//CORS
-app.use(cors());
+// CORS
+app.use(
+	cors({
+		credentials: true,
+		origin: 'http://localhost:5000'
+	})
+);
 
 //Dotenv file
 dotenv.config();
+
+// app.use(function (req, res, next) {
+// 	res.header('Access-Control-Allow-Credentials', true);
+// 	res.header('Access-Control-Allow-Origin', 'http://localhost:5000');
+// 	res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+// 	res.header(
+// 		'Access-Control-Allow-Headers',
+// 		'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept'
+// 	);
+// 	if ('OPTIONS' == req.method) {
+// 		res.send(200);
+// 	} else {
+// 		next();
+// 	}
+// });
 
 //DB Connection
 mongoose.connect(
@@ -43,6 +65,10 @@ app.use(cookieParser('secret'));
 //Session Configuration
 app.use(
 	session({
+		cookie: {
+			maxAge: 1000 * 60 * 60 * 60
+			// secure: true
+		},
 		secret: process.env.SESSION_SECRET,
 		resave: false,
 		saveUninitialized: false
@@ -62,13 +88,13 @@ passport.deserializeUser(User.deserializeUser());
 //Setting up local variables
 // app.use(function (req, res, next) {
 // 	res.locals.currentUser = req.user;
-// 	res.locals.success = req.flash('success');
-// 	res.locals.error = req.flash('error');
 // 	next();
 // });
 
 //Routes
-app.use('/account', authIndex);
+app.use('/', authRoutes);
+app.use('/account', profileRoutes);
+app.use('/journals', journalRoutes);
 
 //Server Configuration
 const PORT = process.env.PORT || 3000;

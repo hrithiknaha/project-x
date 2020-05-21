@@ -37,7 +37,7 @@ const SignUpForm = () => {
 		};
 
 		try {
-			const response = await Axios.post('/account/register', body);
+			const response = await Axios.post('/register', body);
 			const { err } = response.data;
 			if (err) {
 				return appDispatch({

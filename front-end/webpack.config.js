@@ -9,6 +9,7 @@ module.exports = {
 		path: path.resolve(__dirname),
 		filename: 'bundled.js'
 	},
+	node: { fs: 'empty' },
 	mode: 'development',
 	devtool: 'source-map',
 	devServer: {

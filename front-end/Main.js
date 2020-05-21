@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { useImmerReducer } from 'use-immer';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -10,17 +10,25 @@ import StateContext from './StateContext';
 import './scss/style.scss';
 
 Axios.defaults.baseURL = 'http://localhost:3000';
+Axios.defaults.withCredentials = true;
 
 //Components
 import HomeGuest from './components/HomeGuest';
 import Home from './components/Home';
 import FlashMessages from './components/FlashMessages';
+import ProfilePage from './components/ProfilePage';
+import WriteJournal from './components/WriteJournal';
 
 const Main = () => {
 	const initialState = {
 		loggedIn: Boolean(localStorage.getItem('fowUsername')),
 		flashMessages: [],
-		user: {}
+		user: {
+			username: localStorage.getItem('fowUsername'),
+			email: localStorage.getItem('fowEmail'),
+			name: localStorage.getItem('fowName'),
+			date: localStorage.getItem('fowDate')
+		}
 	};
 
 	function reducer(draft, action) {
@@ -28,6 +36,10 @@ const Main = () => {
 			case 'login':
 				draft.loggedIn = true;
 				draft.user = action.user;
+				console.log('Inside login');
+				return;
+			case 'logout':
+				draft.loggedIn = false;
 				return;
 			case 'flashMessage':
 				draft.flashMessages.push(action.value);
@@ -37,6 +49,20 @@ const Main = () => {
 
 	const [state, dispatch] = useImmerReducer(reducer, initialState);
 
+	useEffect(() => {
+		if (state.loggedIn) {
+			localStorage.setItem('fowName', state.user.name);
+			localStorage.setItem('fowEmail', state.user.email);
+			localStorage.setItem('fowUsername', state.user.username);
+			localStorage.setItem('fowDate', state.user.date);
+		} else {
+			localStorage.removeItem('fowName');
+			localStorage.removeItem('fowEmail');
+			localStorage.removeItem('fowUsername');
+			localStorage.removeItem('fowDate');
+		}
+	}, [state.loggedIn]);
+
 	return (
 		<StateContext.Provider value={state}>
 			<DispatchContext.Provider value={dispatch}>
@@ -45,6 +71,12 @@ const Main = () => {
 					<Switch>
 						<Route path='/' exact>
 							{state.loggedIn ? <Home /> : <HomeGuest />}
+						</Route>
+						<Route path='/:username' exact>
+							<ProfilePage />
+						</Route>
+						<Route path='/write/journal'>
+							<WriteJournal />
 						</Route>
 					</Switch>
 				</BrowserRouter>
