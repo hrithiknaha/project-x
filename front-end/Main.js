@@ -18,6 +18,7 @@ import Home from './components/Home';
 import FlashMessages from './components/FlashMessages';
 import ProfilePage from './components/ProfilePage';
 import WriteJournal from './components/WriteJournal';
+import JournalExpanded from './components/JournalExpanded';
 
 const Main = () => {
 	const initialState = {
@@ -77,6 +78,9 @@ const Main = () => {
 						</Route>
 						<Route path='/write/journal'>
 							<WriteJournal />
+						</Route>
+						<Route path='/journal/:id'>
+							<JournalExpanded />
 						</Route>
 					</Switch>
 				</BrowserRouter>

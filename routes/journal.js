@@ -11,14 +11,26 @@ router.post('/', (req, res) => {
 });
 
 router.post('/write', (req, res) => {
-	console.log('Hiting');
-	console.log({
-		msg: 'asdasd',
-		user: req.user
+	const { title, prologue, content, genre } = req.body;
+	const author = {
+		id: req.user._id,
+		username: req.user.username
+	};
+
+	const journal = new Journals({
+		title,
+		prologue,
+		body: content,
+		genre,
+		author
 	});
-	return res.json({
-		msg: 'asdasd',
-		user: req.user
+
+	journal.save((err, recentlyCreatedJournal) => {
+		if (err) return console.log(err);
+		return res.json({
+			msg: 'Content has been added!',
+			id: recentlyCreatedJournal._id
+		});
 	});
 });
 

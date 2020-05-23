@@ -1,10 +1,13 @@
 import React, { useState, useContext } from 'react';
 import Axios from 'axios';
+import { withRouter } from 'react-router-dom';
 
 import StateContext from '../StateContext';
+import DispatchContext from '../DispatchContext';
 
-const WriteJournal = () => {
+const WriteJournal = (props) => {
 	const appState = useContext(StateContext);
+	const appDispatch = useContext(DispatchContext);
 
 	const [title, setTitle] = useState();
 	const [prologue, setPrologue] = useState();
@@ -36,16 +39,14 @@ const WriteJournal = () => {
 			genre
 		};
 
-		// const config = {
-		// 	withCredentials: true,
-		// 	credentials: 'include',
-		// 	headers: {
-		// 		Accept: 'application/json',
-		// 		'Content-Type': 'application/json'
-		// 	}
-		// };
-		const response = await Axios.post('/journals/write', body);
-		console.log(response.data);
+		try {
+			const response = await Axios.post('/journals/write', body);
+			const { msg, id } = response.data;
+			appDispatch({ type: 'flashMessage', value: msg });
+			props.history.push(`/journal/${id}`);
+		} catch (e) {
+			console.log('Something went wrong' + e);
+		}
 	}
 
 	return (
@@ -93,6 +94,7 @@ const WriteJournal = () => {
 						id='exampleFormControlSelect1'
 						onChange={changeGenre}
 					>
+						<option selected>Select Genre</option>
 						<option value='blog'>Blog</option>
 						<option value='entry'>Entry</option>
 						<option value='poetry'>Poetry</option>
@@ -109,4 +111,4 @@ const WriteJournal = () => {
 	);
 };
 
-export default WriteJournal;
+export default withRouter(WriteJournal);
