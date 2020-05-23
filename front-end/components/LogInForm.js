@@ -41,11 +41,9 @@ const LogInForm = () => {
 		}
 	}
 	return (
-		<form onSubmit={handleSubmit}>
-			<div className='form-group'>
-				<label htmlFor='username-register' className='text-muted mb-1'>
-					<small>Username</small>
-				</label>
+		<form onSubmit={handleSubmit} className='ui form'>
+			<div className='field'>
+				<label htmlFor='username-register'>Username</label>
 				<input
 					id='username-register'
 					name='username'
