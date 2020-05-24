@@ -1,8 +1,15 @@
+@import './tools/font';
+@import './tools/reset';
+@import './tools/sizing';
+@import './tools/button';
+@import './tools/loading';
+@import './tools/accent';
+
 @import './components/HomeGuest';
 @import './components/Home';
 @import './components/Journal';
 @import './components/FlashMessages';
-
-@import './tools/button';
-@import './tools/loading';
-@import './tools/accent';
+@import './components/JournalFeed';
+@import './components/Profile';
+@import './components/WriteJournal';
+@import './components/JournalExpanded';

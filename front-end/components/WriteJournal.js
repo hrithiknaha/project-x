@@ -50,50 +50,36 @@ const WriteJournal = (props) => {
 	}
 
 	return (
-		<div className='container container--narrow py-md-5 home'>
-			<h1 className='display-4 text-center'>
-				Write down your magic spell
-			</h1>
-			<form onSubmit={handleSubmit}>
-				<div className='form-group'>
-					<label htmlFor='exampleFormControlInput1'>Title</label>
+		<div className='mt-s ui container wj'>
+			<h1 className='wj-title mb-s'>Write Your Journal Here!</h1>
+			<form onSubmit={handleSubmit} className='ui form'>
+				<div className='field'>
+					<label>Title</label>
 					<input
 						type='text'
-						className='form-control'
-						id='exampleFormControlInput1'
 						placeholder='Make it a good one!'
 						onChange={changeTitle}
 					/>
 				</div>
-				<div className='form-group'>
-					<label htmlFor='exampleFormControlTextarea1'>
-						Prologue
-					</label>
+				<div className='field'>
+					<label>Prologue</label>
 					<textarea
-						className='form-control'
-						id='exampleFormControlTextarea1'
 						rows='3'
 						placeholder='This will be displayed on the cards!'
 						onChange={changePrologue}
 					></textarea>
 				</div>
-				<div className='form-group'>
-					<label htmlFor='exampleFormControlTextarea1'>Content</label>
+				<div className='field'>
+					<label>Content</label>
 					<textarea
-						className='form-control'
-						id='exampleFormControlTextarea1'
 						rows='5'
 						placeholder='Your story goes here'
 						onChange={changeContent}
 					></textarea>
 				</div>
-				<div className='form-group'>
-					<label htmlFor='exampleFormControlSelect1'>Genre</label>
-					<select
-						className='form-control'
-						id='exampleFormControlSelect1'
-						onChange={changeGenre}
-					>
+				<div className='field'>
+					<label>Genre</label>
+					<select onChange={changeGenre}>
 						<option selected>Select Genre</option>
 						<option value='blog'>Blog</option>
 						<option value='entry'>Entry</option>
@@ -103,7 +89,7 @@ const WriteJournal = (props) => {
 						<option value='quote'>Quote</option>
 					</select>
 				</div>
-				<button type='submit' className='btn btn-primary'>
+				<button type='submit' className='ui button positive'>
 					Post
 				</button>
 			</form>

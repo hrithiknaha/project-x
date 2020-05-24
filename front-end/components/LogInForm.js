@@ -43,9 +43,8 @@ const LogInForm = () => {
 	return (
 		<form onSubmit={handleSubmit} className='ui form'>
 			<div className='field'>
-				<label htmlFor='username-register'>Username</label>
+				<label>Username</label>
 				<input
-					id='username-register'
 					name='username'
 					className='form-control'
 					type='text'
@@ -54,23 +53,16 @@ const LogInForm = () => {
 					onChange={handleUsername}
 				/>
 			</div>
-			<div className='form-group'>
-				<label htmlFor='password-register' className='text-muted mb-1'>
-					<small>Password</small>
-				</label>
+			<div className='field'>
+				<label>Password</label>
 				<input
-					id='password-register'
 					name='password'
-					className='form-control'
 					type='password'
 					placeholder='Enter Password'
 					onChange={handlePassword}
 				/>
 			</div>
-			<button
-				type='submit'
-				className='py-3 mt-4 btn btn-lg btn-success btn-block'
-			>
+			<button type='submit' className='ui green button form-button'>
 				Log in to F-O-W
 			</button>
 		</form>

@@ -1,0 +1,27 @@
+$small: 3rem;
+$medium: 5rem;
+$big: 7rem;
+
+.mt-s {
+	margin-top: $small;
+}
+
+.mt-m {
+	margin-top: $medium;
+}
+
+.mt-b {
+	margin-top: $big;
+}
+
+.mb-s {
+	margin-bottom: $small;
+}
+
+.mb-m {
+	margin-bottom: $medium;
+}
+
+.mb-b {
+	margin-bottom: $big;
+}

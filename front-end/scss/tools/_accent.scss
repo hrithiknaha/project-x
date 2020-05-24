@@ -5,44 +5,74 @@ $thoughts: #00bcd4;
 $journal: #ff9800;
 $quote: #009688;
 
-.blog {
-	border-color: $blog !important;
-	> div > h5 > span {
+.blog > div {
+	box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $blog, 0 1px 3px 0 #bcbdbd;
+
+	&:hover {
+		box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $blog, 0 1px 3px 0 #bcbdbd;
+	}
+
+	.label {
 		background-color: $blog;
+		color: white;
 	}
 }
 
-.entry {
-	border-color: $entry !important;
-	> div > h5 > span {
+.entry > div {
+	box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $entry, 0 1px 3px 0 #d4d4d5;
+	&:hover {
+		box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $entry, 0 1px 3px 0 #bcbdbd;
+	}
+	.label {
 		background-color: $entry;
+		color: white;
 	}
 }
 
-.poetry {
-	border-color: $poetry !important;
-	> div > h5 > span {
+.poetry > div {
+	box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $poetry, 0 1px 3px 0 #d4d4d5;
+	&:hover {
+		box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $poetry, 0 1px 3px 0 #bcbdbd;
+	}
+
+	.label {
 		background-color: $poetry;
+		color: white;
 	}
 }
 
-.thoughts {
-	border-color: $thoughts !important;
-	> div > h5 > span {
+.thoughts > div {
+	box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $thoughts, 0 1px 3px 0 #d4d4d5;
+	&:hover {
+		box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $thoughts, 0 1px 3px 0 #bcbdbd;
+	}
+
+	.label {
 		background-color: $thoughts;
+		color: white;
 	}
 }
 
-.journal {
-	border-color: $journal !important;
-	> div > h5 > span {
+.journal > div {
+	box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $journal, 0 1px 3px 0 #d4d4d5;
+	&:hover {
+		box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $journal, 0 1px 3px 0 #bcbdbd;
+	}
+
+	.label {
 		background-color: $journal;
+		color: white;
 	}
 }
 
-.quote {
-	border-color: $quote !important;
-	> div > h5 > span {
+.quote > div {
+	box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $quote, 0 1px 3px 0 #d4d4d5;
+	&:hover {
+		box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $quote, 0 1px 3px 0 #bcbdbd;
+	}
+
+	.label {
 		background-color: $quote;
+		color: white;
 	}
 }

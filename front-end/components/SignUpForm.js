@@ -53,66 +53,47 @@ const SignUpForm = () => {
 	}
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<div className='form-group'>
-				<label htmlFor='name-register' className='text-muted mb-1'>
-					<small>Name</small>
-				</label>
+		<form onSubmit={handleSubmit} className='ui form'>
+			<div className='field'>
+				<label>Name</label>
 				<input
-					id='name-register'
 					name='name'
-					className='form-control'
 					type='text'
 					placeholder='Enter your Name'
 					autoComplete='off'
 					onChange={handleName}
 				/>
 			</div>
-			<div className='form-group'>
-				<label htmlFor='username-register' className='text-muted mb-1'>
-					<small>Username</small>
-				</label>
+			<div className='field'>
+				<label>Username</label>
 				<input
-					id='username-register'
 					name='username'
-					className='form-control'
 					type='text'
 					placeholder='Pick a username'
 					autoComplete='off'
 					onChange={handleUsername}
 				/>
 			</div>
-			<div className='form-group'>
-				<label htmlFor='email-register' className='text-muted mb-1'>
-					<small>Email</small>
-				</label>
+			<div className='field'>
+				<label>Email</label>
 				<input
-					id='email-register'
 					name='email'
-					className='form-control'
 					type='text'
 					placeholder='you@example.com'
 					autoComplete='off'
 					onChange={handleEmail}
 				/>
 			</div>
-			<div className='form-group'>
-				<label htmlFor='password-register' className='text-muted mb-1'>
-					<small>Password</small>
-				</label>
+			<div className='field'>
+				<label>Password</label>
 				<input
-					id='password-register'
 					name='password'
-					className='form-control'
 					type='password'
 					placeholder='Create a password'
 					onChange={handlePassword}
 				/>
 			</div>
-			<button
-				type='submit'
-				className='py-3 mt-4 btn btn-lg btn-success btn-block'
-			>
+			<button type='submit' className='ui green button form-button'>
 				Sign up for F-O-W
 			</button>
 		</form>

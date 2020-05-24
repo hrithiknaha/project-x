@@ -33,27 +33,21 @@ const Home = () => {
 
 	if (isLoading)
 		return (
-			<div className='mt-5 container container--narrow py-md-5 home'>
-				<h2 className='text-center home-body_title'>
+			<div className='ui container home'>
+				<h2 className='home-body_title'>
 					Hello <strong>{appState.user.username}</strong>, here is
 					your feed.
 				</h2>
-				<div className='mt-5'>
+				<div className='mt-s'>
 					<Link to='/write/journal'>
-						<button
-							type='button'
-							className='btn btn-primary button '
-						>
+						<button type='button' className='positive ui button'>
 							Write you own!
 						</button>
 					</Link>
-					<Link
-						className='home-write_link'
-						to={appState.user.username}
-					>
+					<Link to={appState.user.username}>
 						<button
 							type='button'
-							className='btn btn-success home-write float-right'
+							className='ui right floated button'
 						>
 							{appState.user.username}
 						</button>
@@ -65,28 +59,25 @@ const Home = () => {
 		);
 
 	return (
-		<div className='mt-5 container container--narrow py-md-5 home'>
-			<h2 className='text-center home-body_title'>
+		<div className='ui container home'>
+			<h2 className='home-body_title'>
 				Hello <strong>{appState.user.username}</strong>, here is your
 				feed.
 			</h2>
-			<div className='mt-5'>
+			<div className='mt-s'>
 				<Link to='/write/journal'>
-					<button type='button' className='btn btn-primary button '>
+					<button type='button' className='positive ui button'>
 						Write you own!
 					</button>
 				</Link>
-				<Link className='home-write_link' to={appState.user.username}>
-					<button
-						type='button'
-						className='btn btn-success home-write float-right'
-					>
+				<Link to={appState.user.username}>
+					<button type='button' className='ui right floated button'>
 						{appState.user.username}
 					</button>
 				</Link>
 			</div>
 
-			<div className='mt-5 home-body'>
+			<div className='mt-s home-body'>
 				{isEmpty ? (
 					<HomeNoFeed />
 				) : (

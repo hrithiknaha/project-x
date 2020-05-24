@@ -17,4 +17,23 @@ function dateFormat(dateZ) {
 	return months[date.getMonth()] + ', ' + date.getFullYear();
 }
 
-export default dateFormat;
+function dateCount(date) {
+	const d = new Date(date);
+	var months = [
+		'Jan',
+		'Feb',
+		'Mar',
+		'Apr',
+		'May',
+		'Jun',
+		'Jul',
+		'Aug',
+		'Sep',
+		'Oct',
+		'Nov',
+		'Dec'
+	];
+	return months[d.getMonth()] + ', ' + d.getDate();
+}
+
+export { dateFormat, dateCount };

@@ -1,24 +1,47 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { dateCount } from '../helpers/date';
+
 const Journal = (props) => {
-	const accent = `card border-primary journal-hover ${props.journal.genre}`;
+	const accent = `column ${props.journal.genre}`;
 	return (
-		<Link to={`/journals/${props.journal._id}`} className='no-deco-link'>
-			<div className={accent}>
-				<div className='card-body'>
-					<h5 className='card-title'>
-						{props.journal.title}
-						<span className='float-right badge badge-primary'>
-							{props.journal.genre}
-						</span>
-					</h5>
-					<p className='card-text'>{props.journal.prologue}</p>
-					<p className='card-text'>
-						<small className='text-muted'>
-							Last updated 3 mins ago
-						</small>
-					</p>
+		<Link
+			to={{
+				pathname: `/journal/${props.journal._id}`,
+				state: {
+					journal: props.journal
+				}
+			}}
+			className='no-deco-link column'
+		>
+			<div class={accent}>
+				<div class='ui fluid card journal-hover'>
+					<div class='content'>
+						<div class='ui top right attached label'>
+							{props.journal.genre.toUpperCase()}
+						</div>
+						<div class='header'>{props.journal.title}</div>
+						{/* <div class='meta'>
+							<span class='category'>
+								{dateCount(props.journal.writtenAt)}
+							</span>
+						</div> */}
+						<div class='description'>
+							<p>{props.journal.prologue}</p>
+							<br />
+							Posted | <i>{dateCount(props.journal.writtenAt)}</i>
+						</div>
+					</div>
+					<div class='extra content'>
+						<div class='right floated author'>
+							{/* <img
+							class='ui avatar image'
+							src='/images/avatar/small/matt.jpg'
+						/>{' '} */}
+							{props.journal.author.username}
+						</div>
+					</div>
 				</div>
 			</div>
 		</Link>

@@ -3,14 +3,16 @@ const router = require('express').Router();
 const Journals = require('../models/Journals');
 const User = require('../models/Users');
 
-router.post('/', (req, res) => {
+const { isLoggedIn } = require('../middleware/index');
+
+router.post('/', isLoggedIn, (req, res) => {
 	Journals.find({}, (err, journals) => {
 		if (err) return console.log(err);
 		return res.json(journals);
 	});
 });
 
-router.post('/write', (req, res) => {
+router.post('/write', isLoggedIn, (req, res) => {
 	const { title, prologue, content, genre } = req.body;
 	const author = {
 		id: req.user._id,
@@ -32,6 +34,15 @@ router.post('/write', (req, res) => {
 			id: recentlyCreatedJournal._id
 		});
 	});
+});
+
+router.get('/:id', (req, res) => {
+	Journals.findById(req.params.id)
+		.populate('comments')
+		.exec((err, journal) => {
+			if (err) return console.log(err);
+			return res.json(journal.comments);
+		});
 });
 
 module.exports = router;

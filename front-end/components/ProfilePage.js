@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { Link, useParams, withRouter } from 'react-router-dom';
 import Axios from 'axios';
 
-import dateFormat from '../helpers/date';
+import { dateFormat } from '../helpers/date';
 
 import DispatchContext from '../DispatchContext';
 import StateContext from '../StateContext';
@@ -54,22 +54,19 @@ const ProfilePage = (props) => {
 	if (isLoading) return <Loading />;
 
 	return (
-		<div className='mt-5 container container--narrow py-md-5'>
-			<div className='text-center'>
+		<div className='mt-s ui container pr'>
+			<div className='text-center pr-username'>
 				<h2 className='text-center home-body_title'>
 					Hello <strong>{profileData.username}</strong>
 				</h2>
-				<p className='lead'>
+				<p className='pr-date'>
 					Wizard since {dateFormat(profileData.dateCreated)}
 				</p>
 			</div>
-			<div className='mt-5'>
+			<div className='mt-s mb-s'>
 				{appState.loggedIn && (
 					<Link to='/'>
-						<button
-							type='button'
-							className='btn btn-light button mr-3'
-						>
+						<button type='button' className='ui button'>
 							Home Journals
 						</button>
 					</Link>
@@ -77,10 +74,7 @@ const ProfilePage = (props) => {
 
 				{appState.loggedIn && (
 					<Link to='/write/journal'>
-						<button
-							type='button'
-							className='btn btn-primary button '
-						>
+						<button type='button' className='ui positive button'>
 							Write you own!
 						</button>
 					</Link>
@@ -89,13 +83,14 @@ const ProfilePage = (props) => {
 				{appState.loggedIn && (
 					<button
 						type='button'
-						className='btn btn-dark button float-right'
+						className='ui button right floated'
 						onClick={handleLogout}
 					>
 						Logout
 					</button>
 				)}
 			</div>
+
 			<JournalFeed journals={journalData} />
 		</div>
 	);

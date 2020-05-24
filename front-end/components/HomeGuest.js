@@ -13,10 +13,10 @@ const HomeGuest = () => {
 
 	return (
 		<div className='hg'>
-			<div className='ui container grid '>
-				<div className='eight wide column'>
-					<h1 className='display-4'>Fondness - over - writing</h1>
-					<p className='lead text-muted'>
+			<div className='ui container grid hg-grid'>
+				<div className='ten wide column'>
+					<h1 className='hg-title'>Fondness - over - writing</h1>
+					<p className='hg-subtitle'>
 						In short this is ig for writers, atleast that is what i
 						had kept in mind while making this. Well, there are many
 						changes to be made henceforth, many updates to be
@@ -24,9 +24,9 @@ const HomeGuest = () => {
 						ready to be published so here it is.
 					</p>
 				</div>
-				<div className='eight wide column'>
+				<div className='six wide column'>
 					{switchT ? <SignUpForm /> : <LogInForm />}
-					<div className='ui toggle checkbox'>
+					<div className='ui toggle checkbox hg-toggle'>
 						<input
 							type='checkbox'
 							name='public'

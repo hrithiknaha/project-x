@@ -18,6 +18,7 @@
 		"bootstrap-switch-button": "^1.1.0",
 		"bootstrap4-toggle": "^3.6.1",
 		"immer": "^6.0.5",
+		"masonry-layout": "^4.2.2",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
 		"react-router-dom": "^5.2.0",

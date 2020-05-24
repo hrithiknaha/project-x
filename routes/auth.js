@@ -41,13 +41,11 @@ router.post('/login', function (req, res) {
 
 		req.logIn(user, function (err) {
 			if (err) return res.json({ err: err.message });
-
 			return res.json({
 				username: req.user.username,
 				email: req.user.email,
 				name: req.user.name,
 				date: req.user.dateCreated
-				// user: req.user
 			});
 		});
 	})(req, res);
