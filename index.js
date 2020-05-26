@@ -16,6 +16,7 @@ const Comment = require('./models/Comments');
 const authRoutes = require('./Routes/auth');
 const profileRoutes = require('./Routes/profile');
 const journalRoutes = require('./Routes/journal');
+const commentRoute = require('./Routes/comment');
 
 //App
 const app = express();
@@ -92,6 +93,7 @@ passport.deserializeUser(User.deserializeUser());
 // });
 
 //Routes
+app.use('/comments', commentRoute);
 app.use('/', authRoutes);
 app.use('/account', profileRoutes);
 app.use('/journals', journalRoutes);

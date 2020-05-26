@@ -5,9 +5,11 @@ import Axios from 'axios';
 import Comment from './Comment';
 
 import DispatchContext from '../DispatchContext';
+import StateContext from '../StateContext';
 
 const JournalExpanded = (props) => {
 	const appDispatch = useContext(DispatchContext);
+	const appState = useContext(StateContext);
 
 	const url = `/${props.location.state.journal.author.username}`;
 
@@ -68,20 +70,28 @@ const JournalExpanded = (props) => {
 						</Link>
 					</p>
 
-					<Link
-						to={{
-							pathname: `/journal/edit`,
-							state: {
-								content: journal
-							}
-						}}
-					>
-						<button className='ui secondary button'>Edit</button>
-					</Link>
+					{props.location.state.journal.author.id ===
+						appState.user.id && (
+						<Link
+							to={{
+								pathname: `/journal/edit`,
+								state: {
+									content: journal
+								}
+							}}
+						>
+							<button className='ui secondary button'>
+								Edit
+							</button>
+						</Link>
+					)}
 
-					<button className='ui button' onClick={handleDelete}>
-						Delete
-					</button>
+					{props.location.state.journal.author.id ===
+						appState.user.id && (
+						<button className='ui button' onClick={handleDelete}>
+							Delete
+						</button>
+					)}
 				</div>
 			</div>
 			<div className='ui comments'>
@@ -90,7 +100,11 @@ const JournalExpanded = (props) => {
 					<div>
 						{comments.map((comment) => {
 							return (
-								<Comment comment={comment} key={comment._id} />
+								<Comment
+									comment={comment}
+									key={comment._id}
+									journal_id={journal._id}
+								/>
 							);
 						})}
 						<form className='ui reply form mt-s'>

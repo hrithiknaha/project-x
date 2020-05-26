@@ -12,6 +12,7 @@ router.post('/register', (req, res) => {
 	User.register(newUser, password, (err, user) => {
 		if (err) return res.json({ err: err.message });
 		return res.json({
+			id: user._id,
 			username: user.username,
 			email: user.email,
 			name: user.name,
@@ -42,6 +43,7 @@ router.post('/login', function (req, res) {
 		req.logIn(user, function (err) {
 			if (err) return res.json({ err: err.message });
 			return res.json({
+				id: req.user._id,
 				username: req.user.username,
 				email: req.user.email,
 				name: req.user.name,

@@ -28,6 +28,7 @@ const Main = () => {
 		loggedIn: Boolean(localStorage.getItem('fowUsername')),
 		flashMessages: [],
 		user: {
+			id: localStorage.getItem('fowId'),
 			username: localStorage.getItem('fowUsername'),
 			email: localStorage.getItem('fowEmail'),
 			name: localStorage.getItem('fowName'),
@@ -55,11 +56,13 @@ const Main = () => {
 
 	useEffect(() => {
 		if (state.loggedIn) {
+			localStorage.setItem('fowId', state.user.id);
 			localStorage.setItem('fowName', state.user.name);
 			localStorage.setItem('fowEmail', state.user.email);
 			localStorage.setItem('fowUsername', state.user.username);
 			localStorage.setItem('fowDate', state.user.date);
 		} else {
+			localStorage.removeItem('fowId');
 			localStorage.removeItem('fowName');
 			localStorage.removeItem('fowEmail');
 			localStorage.removeItem('fowUsername');
