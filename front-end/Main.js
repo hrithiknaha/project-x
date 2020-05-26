@@ -19,6 +19,9 @@ import FlashMessages from './components/FlashMessages';
 import ProfilePage from './components/ProfilePage';
 import WriteJournal from './components/WriteJournal';
 import JournalExpanded from './components/JournalExpanded';
+import EditJournal from './components/EditJournal';
+
+import PrivateRoute from './components/PrivateRoute';
 
 const Main = () => {
 	const initialState = {
@@ -70,18 +73,28 @@ const Main = () => {
 				<BrowserRouter>
 					<FlashMessages />
 					<Switch>
-						<Route path='/' exact>
-							{state.loggedIn ? <Home /> : <HomeGuest />}
-						</Route>
-						<Route path='/:username' exact>
-							<ProfilePage />
-						</Route>
-						<Route path='/write/journal'>
-							<WriteJournal />
-						</Route>
-						<Route path='/journal/:id'>
-							<JournalExpanded />
-						</Route>
+						<Route
+							path='/'
+							exact
+							component={state.loggedIn ? Home : HomeGuest}
+						/>
+						<PrivateRoute
+							path='/:username'
+							exact
+							component={ProfilePage}
+						/>
+						<PrivateRoute
+							path='/journal/write'
+							component={WriteJournal}
+						/>
+						<PrivateRoute
+							path='/journal/edit'
+							component={EditJournal}
+						/>
+						<PrivateRoute
+							path='/journal/:id'
+							component={JournalExpanded}
+						/>
 					</Switch>
 				</BrowserRouter>
 			</DispatchContext.Provider>

@@ -1,3 +1,8 @@
+.flash {
+	width: 40%;
+	text-align: center;
+}
+
 .floating-alert {
 	display: none;
 	position: absolute;
@@ -19,7 +24,7 @@
 
 @keyframes floatingAlert {
 	0% {
-		opacity: 0;
+		opacity: 1;
 		visibility: hidden;
 		transform: translateX(-50%) scale(1.2);
 	}
@@ -37,7 +42,7 @@
 	}
 
 	100% {
-		opacity: 0;
+		opacity: 1;
 		visibility: hidden;
 		transform: translateX(-50%) scale(1.2);
 	}

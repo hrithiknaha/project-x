@@ -57,7 +57,7 @@ const ProfilePage = (props) => {
 		<div className='mt-s ui container pr'>
 			<div className='text-center pr-username'>
 				<h2 className='text-center home-body_title'>
-					Hello <strong>{profileData.username}</strong>
+					profile of <strong>{profileData.username}</strong>
 				</h2>
 				<p className='pr-date'>
 					Wizard since {dateFormat(profileData.dateCreated)}
@@ -73,7 +73,7 @@ const ProfilePage = (props) => {
 				)}
 
 				{appState.loggedIn && (
-					<Link to='/write/journal'>
+					<Link to='/journal/write'>
 						<button type='button' className='ui positive button'>
 							Write you own!
 						</button>

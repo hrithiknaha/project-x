@@ -32,7 +32,7 @@ const HomeGuest = () => {
 							name='public'
 							onChange={handleSwitch}
 						/>
-						<label>{switchT ? 'Sign Up' : 'Log In'}</label>
+						<label>{switchT ? 'Login' : 'Signup'}</label>
 					</div>
 				</div>
 			</div>

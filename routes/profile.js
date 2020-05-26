@@ -3,6 +3,8 @@ const router = require('express').Router();
 const Journals = require('../models/Journals');
 const User = require('../models/Users');
 
+const { isLoggedIn } = require('../middleware/index');
+
 router.post('/:username', (req, res) => {
 	Journals.find(
 		{ 'author.username': req.params.username },

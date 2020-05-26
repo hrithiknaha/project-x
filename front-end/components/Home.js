@@ -39,7 +39,7 @@ const Home = () => {
 					your feed.
 				</h2>
 				<div className='mt-s'>
-					<Link to='/write/journal'>
+					<Link to='/journal/write'>
 						<button type='button' className='positive ui button'>
 							Write you own!
 						</button>
@@ -65,7 +65,7 @@ const Home = () => {
 				feed.
 			</h2>
 			<div className='mt-s'>
-				<Link to='/write/journal'>
+				<Link to='/journal/write'>
 					<button type='button' className='positive ui button'>
 						Write you own!
 					</button>
