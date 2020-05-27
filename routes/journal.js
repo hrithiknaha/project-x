@@ -1,28 +1,20 @@
 const router = require('express').Router();
+
 const Journals = require('../models/Journals');
+const User = require('../models/Users');
 const Comment = require('../models/Comments');
 
-const { isLoggedIn, checkUserJournal } = require('../middleware/index');
+const { isLoggedIn } = require('../middleware/index');
 
-router.get('/', (req, res) => {
-	Journals.find((err, journals) => {
+router.post('/', isLoggedIn, (req, res) => {
+	Journals.find({}, (err, journals) => {
 		if (err) return console.log(err);
-
-		res.render('journals/index', { journals });
+		return res.json(journals);
 	});
 });
 
-//Journal GET Write Route
-router.get('/write', isLoggedIn, (req, res) => {
-	res.render('journals/write');
-});
-
-//Journal POST Write Route
 router.post('/write', isLoggedIn, (req, res) => {
-	const title = req.body.title;
-	const body = req.body.body;
-	const prologue = req.body.prologue;
-	const genre = req.body.genre;
+	const { title, prologue, content, genre } = req.body;
 	const author = {
 		id: req.user._id,
 		username: req.user.username
@@ -30,65 +22,63 @@ router.post('/write', isLoggedIn, (req, res) => {
 
 	const journal = new Journals({
 		title,
-		body,
 		prologue,
+		body: content,
 		genre,
 		author
 	});
 
 	journal.save((err, recentlyCreatedJournal) => {
 		if (err) return console.log(err);
-		console.log(recentlyCreatedJournal);
-		res.redirect('/journals/' + recentlyCreatedJournal._id);
+		return res.json({
+			msg: 'Content has been added!',
+			id: recentlyCreatedJournal._id
+		});
 	});
 });
 
-// Journal more info
-router.get('/:journal_id', (req, res) => {
-	console.log('accessing id' + req.params.journal_id);
-	Journals.findById(req.params.journal_id)
+router.get('/:id', isLoggedIn, (req, res) => {
+	Journals.findById(req.params.id)
 		.populate('comments')
-		.exec(function (err, journal) {
-			if (err) return console.log('Error in accessing the DB' + err);
-			res.render('journals/journal', { journal });
+		.exec((err, journal) => {
+			if (err) return console.log(err);
+			return res.json(journal.comments);
 		});
 });
 
-//Journal Edit route
-router.get('/:journal_id/edit', isLoggedIn, checkUserJournal, (req, res) => {
-	Journals.findById(req.params.journal_id, (err, journal) => {
-		if (err) return console.log('Error in accessing the db');
-		res.render('journals/edit', { journal });
-	});
-});
-
-//Journal Edit post routes
-router.post('/:journal_id/edit', isLoggedIn, checkUserJournal, (req, res) => {
-	Journals.findById(req.params.journal_id, (err, journal) => {
-		if (err) return console.log('Error in accessing the db');
+router.post('/:id/edit', isLoggedIn, (req, res) => {
+	console.log('Editing');
+	console.log(req.body);
+	Journals.findById(req.params.id, (err, journal) => {
+		if (err) return console.log(err);
 		journal.title = req.body.title;
-		journal.body = req.body.body;
+		journal.body = req.body.content;
 		journal.prologue = req.body.prologue;
 		journal.genre = req.body.genre;
 		journal.save();
-		res.redirect('/journals/' + journal.id);
+		return res.json({ msg: 'Content has been Edited!' });
 	});
 });
 
-//Journal Delete Route - To add delete comments route
-router.post('/:journal_id/delete', isLoggedIn, checkUserJournal, (req, res) => {
+router.post('/:id/delete', isLoggedIn, (req, res) => {
+	console.log(req.params.id);
 	Journals.findByIdAndDelete(
-		req.params.journal_id,
+		{ _id: req.params.id },
 		{ useFindAndModify: false },
 		(err, journal) => {
-			if (err) return console.log('Error in accessing the db');
-			const arrComments = journal.comments;
-			arrComments.forEach((arrComment) => {
-				Comment.findByIdAndDelete(arrComment, (err) => {
-					if (err) return console.log('Error in accrssing db');
+			if (err) return console.log(err);
+			// console.log(journal.comments.length);
+			if (journal.comments.length !== 0) {
+				const arrComments = journal.comments;
+				// console.log(arrComments);
+				arrComments.forEach((arrComments) => {
+					Comment.findByIdAndDelete(arrComment, (err) => {
+						if (err) return console.log(err);
+						return res.json({ msg: 'Content has been deleted!' });
+					});
 				});
-			});
-			res.redirect('/journals');
+			}
+			return res.json({ msg: 'Content has been deleted!' });
 		}
 	);
 });

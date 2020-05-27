@@ -1,0 +1,22 @@
+.hg {
+	margin-top: 5rem;
+
+	div &-grid {
+		height: 34rem;
+		align-items: center !important;
+	}
+
+	&-toggle {
+		margin-top: 1rem;
+	}
+
+	&-title {
+		font-size: 4rem !important;
+		font-weight: 300;
+	}
+
+	&-subtitle {
+		font-size: 1.5rem;
+		font-weight: 300;
+	}
+}

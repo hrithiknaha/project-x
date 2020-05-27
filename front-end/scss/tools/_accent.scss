@@ -1,0 +1,78 @@
+$blog: #f44336;
+$entry: #673ab7;
+$poetry: #2196f3;
+$thoughts: #00bcd4;
+$journal: #ff9800;
+$quote: #009688;
+
+.blog > div {
+	box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $blog, 0 1px 3px 0 #bcbdbd;
+
+	&:hover {
+		box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $blog, 0 1px 3px 0 #bcbdbd;
+	}
+
+	.label {
+		background-color: $blog;
+		color: white;
+	}
+}
+
+.entry > div {
+	box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $entry, 0 1px 3px 0 #d4d4d5;
+	&:hover {
+		box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $entry, 0 1px 3px 0 #bcbdbd;
+	}
+	.label {
+		background-color: $entry;
+		color: white;
+	}
+}
+
+.poetry > div {
+	box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $poetry, 0 1px 3px 0 #d4d4d5;
+	&:hover {
+		box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $poetry, 0 1px 3px 0 #bcbdbd;
+	}
+
+	.label {
+		background-color: $poetry;
+		color: white;
+	}
+}
+
+.thoughts > div {
+	box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $thoughts, 0 1px 3px 0 #d4d4d5;
+	&:hover {
+		box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $thoughts, 0 1px 3px 0 #bcbdbd;
+	}
+
+	.label {
+		background-color: $thoughts;
+		color: white;
+	}
+}
+
+.journal > div {
+	box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $journal, 0 1px 3px 0 #d4d4d5;
+	&:hover {
+		box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $journal, 0 1px 3px 0 #bcbdbd;
+	}
+
+	.label {
+		background-color: $journal;
+		color: white;
+	}
+}
+
+.quote > div {
+	box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $quote, 0 1px 3px 0 #d4d4d5;
+	&:hover {
+		box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $quote, 0 1px 3px 0 #bcbdbd;
+	}
+
+	.label {
+		background-color: $quote;
+		color: white;
+	}
+}

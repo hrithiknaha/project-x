@@ -3,19 +3,19 @@ const Journal = require('../models/Journals');
 module.exports = {
 	isLoggedIn: function (req, res, next) {
 		if (req.isAuthenticated()) return next();
-		req.flash('error', 'Sorry, Wizzards Only!');
-		res.redirect('/login');
+		else return res.json({ err: "Sorry, you're not logged in" });
 	},
 
 	checkUserJournal: function (req, res, next) {
-		Journal.findById(req.params.journal_id, (err, journal) => {
+		Journal.findById(req.body.journal._id, (err, journal) => {
 			if (err || !journal) {
-				req.flash('error', 'Sorry, that campground does not exists');
-				res.redirect('/journals');
+				return res.json({ err: 'Sorry, No Content was found!' });
 			} else if (journal.author.id.equals(req.user._id)) next();
 			else {
-				req.flash('error', "You don't have permission to do that");
-				res.redirect('/journals' + req.params.id);
+				return res.json(
+					'error',
+					"You don't have permission to do that"
+				);
 			}
 		});
 	}

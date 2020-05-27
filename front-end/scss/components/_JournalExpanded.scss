@@ -1,0 +1,18 @@
+.je {
+	&-segment {
+		&_title {
+			font-weight: 400;
+			font-size: 1.5rem;
+		}
+
+		&_body {
+			white-space: break-spaces;
+		}
+	}
+
+	&-comments {
+		&-text {
+			height: initial !important;
+		}
+	}
+}
