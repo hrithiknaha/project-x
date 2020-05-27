@@ -10,8 +10,8 @@ const path = require('path');
 
 //Local Referencing
 const User = require('./models/Users');
-const Journals = require('./models/Journals');
-const Comment = require('./models/Comments');
+// const Journals = require('./models/Journals');
+// const Comment = require('./models/Comments');
 
 //Requiring routes
 const authRoutes = require('./Routes/auth');
@@ -26,7 +26,7 @@ const app = express();
 app.use(
 	cors({
 		credentials: true,
-		origin: 'http://localhost:3000' || 'https://fow-x.herokuapp.com'
+		origin: 'http://localhost:5000' || 'https://fow-x.herokuapp.com'
 	})
 );
 
