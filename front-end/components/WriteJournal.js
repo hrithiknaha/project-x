@@ -43,7 +43,8 @@ const WriteJournal = (props) => {
 			const response = await Axios.post('/journals/write', body);
 			const { msg, id } = response.data;
 			appDispatch({ type: 'flashMessage', value: msg });
-			props.history.push(`/journal/${id}`);
+			// props.history.push(`/journal/${id}`);
+			props.history.push(`/`);
 		} catch (e) {
 			console.log('Something went wrong' + e);
 		}

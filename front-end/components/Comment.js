@@ -44,27 +44,26 @@ const Comment = (props) => {
 			journal_id: props.journal_id
 		};
 		const response = await Axios.post('/comments/delete', body);
-		const { msg } = response.data;
 		location.reload();
 	}
 
 	return (
-		<div class='comment'>
-			{/* <a class='avatar'>
+		<div className='comment'>
+			{/* <a className='avatar'>
 				<img src='/images/avatar/small/matt.jpg' />
 			</a> */}
-			<div class='content edit'>
-				<Link to={url} class='author'>
+			<div className='content edit'>
+				<Link to={url} className='author'>
 					{props.comment.author.username}
 				</Link>
-				<div class='metadata'>
-					<span class='date'>
+				<div className='metadata'>
+					<span className='date'>
 						{dateCount(props.comment.writtenAt)}
 					</span>
 				</div>
 
 				{!editing ? (
-					<div class='text'>{text}</div>
+					<div className='text'>{text}</div>
 				) : (
 					<form onSubmit={handleEdit} className='ui form'>
 						<input
@@ -92,12 +91,12 @@ const Comment = (props) => {
 				)}
 
 				{props.comment.author.id === appState.user.id && !editing && (
-					<div class='actions'>
-						<a class='reply' onClick={toggleEdit}>
+					<div className='actions'>
+						<a className='reply' onClick={toggleEdit}>
 							Edit
 						</a>
 
-						<a class='reply' onClick={handleDelete}>
+						<a className='reply' onClick={handleDelete}>
 							Delete
 						</a>
 					</div>

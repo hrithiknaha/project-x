@@ -5,7 +5,7 @@ const User = require('../models/Users');
 
 const { isLoggedIn } = require('../middleware/index');
 
-router.post('/:username', (req, res) => {
+router.post('/:username', isLoggedIn, (req, res) => {
 	Journals.find(
 		{ 'author.username': req.params.username },
 		(err, journals) => {

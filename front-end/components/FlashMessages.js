@@ -11,7 +11,7 @@ const FlashMessages = (props) => {
 					return (
 						<div
 							key={index}
-							className='ui negative  message floating-alert flash'
+							className='ui message floating-alert flash'
 						>
 							{msg}
 						</div>

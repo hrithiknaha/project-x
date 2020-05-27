@@ -6,14 +6,14 @@ const Comment = require('../models/Comments');
 
 const { isLoggedIn } = require('../middleware/index');
 
-router.post('/', (req, res) => {
+router.post('/', isLoggedIn, (req, res) => {
 	Journals.find({}, (err, journals) => {
 		if (err) return console.log(err);
 		return res.json(journals);
 	});
 });
 
-router.post('/write', (req, res) => {
+router.post('/write', isLoggedIn, (req, res) => {
 	const { title, prologue, content, genre } = req.body;
 	const author = {
 		id: req.user._id,
@@ -37,7 +37,7 @@ router.post('/write', (req, res) => {
 	});
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', isLoggedIn, (req, res) => {
 	Journals.findById(req.params.id)
 		.populate('comments')
 		.exec((err, journal) => {
@@ -46,7 +46,7 @@ router.get('/:id', (req, res) => {
 		});
 });
 
-router.post('/:id/edit', (req, res) => {
+router.post('/:id/edit', isLoggedIn, (req, res) => {
 	console.log('Editing');
 	console.log(req.body);
 	Journals.findById(req.params.id, (err, journal) => {
@@ -60,7 +60,7 @@ router.post('/:id/edit', (req, res) => {
 	});
 });
 
-router.post('/:id/delete', (req, res) => {
+router.post('/:id/delete', isLoggedIn, (req, res) => {
 	console.log(req.params.id);
 	Journals.findByIdAndDelete(
 		{ _id: req.params.id },

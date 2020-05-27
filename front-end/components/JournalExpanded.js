@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import Axios from 'axios';
 
 import Comment from './Comment';
+import WriteComment from './WriteComment';
 
 import DispatchContext from '../DispatchContext';
 import StateContext from '../StateContext';
@@ -107,17 +108,7 @@ const JournalExpanded = (props) => {
 								/>
 							);
 						})}
-						<form className='ui reply form mt-s'>
-							<div className='field' data-children-count='1'>
-								<textarea
-									rows='2'
-									className='je-comments-text'
-								></textarea>
-							</div>
-							<div className='ui blue labeled submit icon button'>
-								<i className='icon edit'></i> Add Reply
-							</div>
-						</form>
+						<WriteComment journal={journal} />
 					</div>
 				)}
 			</div>
