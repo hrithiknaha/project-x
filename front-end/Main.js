@@ -9,7 +9,8 @@ import StateContext from './StateContext';
 
 import './scss/style.scss';
 
-Axios.defaults.baseURL = 'http://localhost:3000';
+Axios.defaults.baseURL =
+	'http://localhost:3000' || 'https://fow-x.herokuapp.com';
 Axios.defaults.withCredentials = true;
 
 //Components

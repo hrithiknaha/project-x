@@ -1,23 +1,24 @@
+const currentTask = process.env.npm_lifecycle_event;
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-module.exports = {
+config = {
 	entry: './Main.js',
 	output: {
 		publicPath: '/',
 		path: path.resolve(__dirname),
 		filename: 'bundled.js'
 	},
-	node: { fs: 'empty' },
+	plugins: [
+		// new Dotenv(),
+		new HtmlWebpackPlugin({
+			filename: 'index.html',
+			template: 'index-template.html'
+		})
+	],
 	mode: 'development',
-	devtool: 'source-map',
-	devServer: {
-		port: 5000,
-		contentBase: path.join(__dirname),
-		hot: true,
-		historyApiFallback: { index: 'index.html' }
-	},
 	module: {
 		rules: [
 			{
@@ -48,3 +49,26 @@ module.exports = {
 		]
 	}
 };
+
+if (currentTask == 'webpackDev' || currentTask == 'dev') {
+	config.devtool = 'source-map';
+	config.devServer = {
+		port: 5000,
+		contentBase: path.join(__dirname),
+		hot: true,
+		historyApiFallback: { index: 'index.html' }
+	};
+}
+
+if (currentTask == 'webpackBuild') {
+	config.plugins.push(new CleanWebpackPlugin());
+	config.mode = 'production';
+	config.output = {
+		publicPath: '/',
+		path: path.resolve(__dirname, 'dist'),
+		filename: '[name].[chunkhash].js',
+		chunkFilename: '[name].[chunkhash].js'
+	};
+}
+
+module.exports = config;

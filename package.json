@@ -6,7 +6,8 @@
 	"scripts": {
 		"start": "node index.js",
 		"dev": "nodemon index.js -e js,ejs",
-		"css:watch": "node-sass scss/style.scss -o public/stylesheets -w"
+		"css:watch": "node-sass scss/style.scss -o public/stylesheets -w",
+		"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix front-end && npm run webpackBuild --prefix front-end"
 	},
 	"engines": {
 		"node": "12.16.2"

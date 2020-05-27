@@ -6,6 +6,7 @@ const LocalStrategy = require('passport-local');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const path = require('path');
 
 //Local Referencing
 const User = require('./models/Users');
@@ -25,7 +26,7 @@ const app = express();
 app.use(
 	cors({
 		credentials: true,
-		origin: 'http://localhost:5000'
+		origin: 'http://localhost:3000' || 'https://fow-x.herokuapp.com'
 	})
 );
 
@@ -97,6 +98,16 @@ app.use('/comments', commentRoute);
 app.use('/', authRoutes);
 app.use('/account', profileRoutes);
 app.use('/journals', journalRoutes);
+
+//Server Static Assets is in production
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('front-end/dist'));
+	app.get('*', (req, res) => {
+		res.sendFile(
+			path.resolve(__dirname, 'front-end', 'dist', 'index.html')
+		);
+	});
+}
 
 //Server Configuration
 const PORT = process.env.PORT || 3000;
