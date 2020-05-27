@@ -101,12 +101,13 @@ app.use('/journals', journalRoutes);
 
 //Server Static Assets is in production
 if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('front-end/dist'));
-	app.get('*', (req, res) => {
-		res.sendFile(
-			path.resolve(__dirname, 'front-end', 'dist', 'index.html')
-		);
-	});
+	// app.use(express.static('front-end/dist'));
+	// app.get('*', (req, res) => {
+	// 	res.sendFile(
+	// 		path.resolve(__dirname, 'front-end', 'dist', 'index.html')
+	// 	);
+	// });
+	res.send(hello);
 }
 
 //Server Configuration
